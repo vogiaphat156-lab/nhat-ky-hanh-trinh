@@ -4,7 +4,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Nhật Ký Hành Trình – Gạo Thơm Đăk La</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,126 +11,117 @@
 
 <style>
 :root {
-  --green: #354b37;
-  --green-dark: #24392b;
-  --gold: #c9a66b;
-  --gold-light: #ead5a9;
-  --cream: #fffaf0;
-  --brown: #493522;
-  --muted: #806e59;
+  --green:#354b37;
+  --gold:#c9a66b;
+  --cream:#fffaf0;
+  --brown:#493522;
 }
 
-* {
-  box-sizing: border-box;
-}
+* {box-sizing:border-box;}
 
 body {
-  margin: 0;
-  color: var(--brown);
-  font-family: 'Be Vietnam Pro', sans-serif;
+  margin:0;
+  color:var(--brown);
+  font-family:'Be Vietnam Pro',sans-serif;
   background:
-    radial-gradient(ellipse at 10% 15%, #fff8e9, transparent 35%),
-    radial-gradient(ellipse at 90% 85%, #cbb998, transparent 40%),
+    radial-gradient(ellipse at 10% 15%,#fff8e9,transparent 35%),
+    radial-gradient(ellipse at 90% 85%,#cbb998,transparent 40%),
     #e4d5bc;
 }
 
 .background {
-  min-height: 100vh;
-  padding: 45px 15px 55px;
-  position: relative;
-  overflow: hidden;
+  min-height:100vh;
+  padding:45px 15px 55px;
+  position:relative;
+  overflow:hidden;
 }
 
 .background::before,
 .background::after {
-  content: "❧";
-  position: fixed;
-  color: rgba(111,83,48,.12);
-  font-family: serif;
-  font-size: 190px;
-  pointer-events: none;
+  content:"❧";
+  position:fixed;
+  color:rgba(111,83,48,.12);
+  font-family:serif;
+  font-size:190px;
+  pointer-events:none;
 }
 
 .background::before {
-  top: 5px;
-  left: -35px;
-  transform: rotate(-35deg);
+  top:5px;
+  left:-35px;
+  transform:rotate(-35deg);
 }
 
 .background::after {
-  bottom: 0;
-  right: -30px;
-  transform: rotate(145deg);
+  bottom:0;
+  right:-30px;
+  transform:rotate(145deg);
 }
 
-header,
-.book-area,
-.controls,
-footer {
-  position: relative;
-  z-index: 1;
+header,.book-area,.controls,footer {
+  position:relative;
+  z-index:1;
 }
 
 header {
-  text-align: center;
-  margin-bottom: 35px;
+  text-align:center;
+  margin-bottom:35px;
 }
 
 .eyebrow {
-  color: #927047;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 4px;
-  text-transform: uppercase;
+  color:#927047;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:4px;
 }
 
 h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(30px, 5vw, 48px);
-  font-weight: 600;
-  color: #493522;
-  margin: 13px 0 8px;
+  font-family:'Playfair Display',serif;
+  font-size:clamp(30px,5vw,48px);
+  font-weight:600;
+  color:#493522;
+  margin:13px 0 8px;
 }
 
 .subtitle {
-  color: #816c50;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  font-style: italic;
+  color:#816c50;
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;
+  font-style:italic;
 }
 
 .header-decoration {
-  color: #a17c4c;
-  font-size: 22px;
-  margin-top: 13px;
-  letter-spacing: 9px;
+  color:#a17c4c;
+  font-size:22px;
+  margin-top:13px;
+  letter-spacing:9px;
 }
 
-/* BOOK */
+/* CUỐN SỔ */
 
 .book-area {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 12px 0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:12px 0;
 }
 
 .diary-book {
-  width: 500px;
-  height: 650px;
-  max-width: 100%;
+  width:500px;
+  height:650px;
+  max-width:100%;
 }
 
-/* PAPER */
+/* GIẤY */
 
 .diary-page {
-  position: relative;
-  overflow: hidden;
-  padding: 42px 38px;
-  color: var(--brown);
+  position:relative;
+  overflow:hidden;
+  padding:42px 38px;
+  color:var(--brown);
   background:
-    radial-gradient(ellipse at 0% 0%, rgba(191,155,105,.12), transparent 38%),
-    radial-gradient(ellipse at 100% 100%, rgba(191,155,105,.12), transparent 35%),
+    radial-gradient(ellipse at 0% 0%,rgba(191,155,105,.12),transparent 38%),
+    radial-gradient(ellipse at 100% 100%,rgba(191,155,105,.12),transparent 35%),
     repeating-linear-gradient(
       0deg,
       transparent,
@@ -139,378 +129,540 @@ h1 {
       rgba(157,126,86,.045) 30px
     ),
     var(--cream);
-  border: 1px solid #d9c7a8;
+  border:1px solid #d9c7a8;
 }
 
 .diary-page::before {
-  content: "";
-  position: absolute;
-  inset: 9px;
-  border: 1px solid rgba(160,123,75,.45);
-  pointer-events: none;
+  content:"";
+  position:absolute;
+  inset:9px;
+  border:1px solid rgba(160,123,75,.45);
+  pointer-events:none;
 }
 
 .diary-page:not(.cover)::after {
-  content: "❧";
-  position: absolute;
-  right: 18px;
-  bottom: 7px;
-  color: rgba(155,119,72,.35);
-  font-size: 35px;
-  pointer-events: none;
+  content:"❧";
+  position:absolute;
+  right:18px;
+  bottom:7px;
+  color:rgba(155,119,72,.35);
+  font-size:35px;
+  pointer-events:none;
 }
 
-/* FRONT AND BACK COVER */
+/* BÌA */
 
 .cover {
-  position: relative;
-  overflow: hidden;
+  position:relative;
+  overflow:hidden;
   background:
-    radial-gradient(ellipse at 50% 45%, #566b4d 0%, #3b513b 55%, #263c2d 100%);
-  color: #f7e8c4;
-  border: 12px double #c9a66b;
-  outline: 1px solid #e6cc96;
-  outline-offset: -19px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 45px 30px;
+    radial-gradient(ellipse at 50% 45%,#566b4d 0%,#3b513b 55%,#263c2d 100%);
+  color:#f7e8c4;
+  border:12px double #c9a66b;
+  outline:1px solid #e6cc96;
+  outline-offset:-19px;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:45px 30px;
 }
 
 .cover::before {
-  content: "❧  ✦  ❧";
-  position: absolute;
-  inset: 25px 18px auto;
-  height: 55px;
-  border: 1px solid #c5a66d;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #e6cb92;
-  font-size: 23px;
-  letter-spacing: 8px;
+  content:"❧  ✦  ❧";
+  position:absolute;
+  inset:25px 18px auto;
+  height:55px;
+  border:1px solid #c5a66d;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#e6cb92;
+  font-size:23px;
+  letter-spacing:8px;
 }
 
 .cover::after {
-  content: "❧  ✦  ❧";
-  position: absolute;
-  inset: auto 18px 25px;
-  height: 55px;
-  border: 1px solid #c5a66d;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #e6cb92;
-  font-size: 23px;
-  letter-spacing: 8px;
+  content:"❧  ✦  ❧";
+  position:absolute;
+  inset:auto 18px 25px;
+  height:55px;
+  border:1px solid #c5a66d;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#e6cb92;
+  font-size:23px;
+  letter-spacing:8px;
 }
 
 .cover-kicker {
-  font-size: 10px;
-  letter-spacing: 4px;
-  color: #e5cb98;
-  margin-bottom: 12px;
+  font-size:10px;
+  letter-spacing:4px;
+  color:#e5cb98;
+  margin-bottom:12px;
 }
 
 .cover-ornament {
-  color: #e8ce96;
-  font-size: 32px;
-  margin: 12px 0;
+  color:#e8ce96;
+  font-size:32px;
+  margin:12px 0;
 }
 
 .cover-seal {
-  width: 82px;
-  height: 82px;
-  border: 2px solid #d5b77b;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  color: #f2dcae;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 27px;
-  margin: 15px auto;
-  box-shadow:
-    0 0 0 5px rgba(210,180,119,.13),
-    inset 0 0 10px rgba(210,180,119,.12);
+  width:82px;
+  height:82px;
+  border:2px solid #d5b77b;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  color:#f2dcae;
+  font-family:'Cormorant Garamond',serif;
+  font-size:27px;
+  margin:15px auto;
+  box-shadow:0 0 0 5px rgba(210,180,119,.13),
+             inset 0 0 10px rgba(210,180,119,.12);
 }
 
 .cover-seal small {
-  font-family: 'Be Vietnam Pro', sans-serif;
-  font-size: 7px;
-  letter-spacing: 2px;
+  font-family:'Be Vietnam Pro',sans-serif;
+  font-size:7px;
+  letter-spacing:2px;
 }
 
 .cover h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 38px;
-  line-height: 1.4;
-  font-weight: 600;
-  color: #fff0cf;
-  text-shadow: 0 3px 8px rgba(0,0,0,.35);
-  margin: 5px 0;
+  font-family:'Playfair Display',serif;
+  font-size:38px;
+  line-height:1.4;
+  font-weight:600;
+  color:#fff0cf;
+  text-shadow:0 3px 8px rgba(0,0,0,.35);
+  margin:5px 0;
 }
 
 .cover-line {
-  width: 160px;
-  height: 2px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    #e3c38a,
-    transparent
-  );
-  margin: 20px auto;
+  width:160px;
+  height:2px;
+  background:linear-gradient(90deg,transparent,#e3c38a,transparent);
+  margin:20px auto;
 }
 
 .cover p {
-  font-size: 11px;
-  letter-spacing: 4px;
-  color: #ead5a9;
-  font-weight: 600;
+  font-size:11px;
+  letter-spacing:4px;
+  color:#ead5a9;
+  font-weight:600;
 }
 
 .cover-note {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 21px;
-  font-style: italic;
-  line-height: 1.5;
-  color: #f2dfb8;
-  margin-top: 15px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:21px;
+  font-style:italic;
+  line-height:1.5;
+  color:#f2dfb8;
+  margin-top:15px;
 }
 
-/* PAGE DECORATION */
+/* ĐẦU TRANG */
 
 .page-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #d7c3a2;
-  padding-bottom: 10px;
-  margin-bottom: 24px;
-  color: #9a7950;
-  font-size: 10px;
-  letter-spacing: 2px;
-  font-weight: 600;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #d7c3a2;
+  padding-bottom:10px;
+  margin-bottom:24px;
+  color:#9a7950;
+  font-size:10px;
+  letter-spacing:2px;
+  font-weight:600;
 }
 
 .page-top span:last-child {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 16px;
-  font-style: italic;
-  letter-spacing: 0;
+  font-family:'Cormorant Garamond',serif;
+  font-size:16px;
+  font-style:italic;
+  letter-spacing:0;
 }
 
 .section-label {
-  display: inline-block;
-  color: #85623d;
-  background: #efe3ce;
-  padding: 6px 12px;
-  font-size: 10px;
-  letter-spacing: 2px;
-  margin-bottom: 14px;
+  display:inline-block;
+  color:#85623d;
+  background:#efe3ce;
+  padding:6px 12px;
+  font-size:10px;
+  letter-spacing:2px;
+  margin-bottom:14px;
 }
 
 .diary-page h2 {
-  font-family: 'Playfair Display', serif;
-  color: #523b25;
-  font-size: 27px;
-  line-height: 1.4;
-  font-weight: 600;
-  margin: 0 0 20px;
+  font-family:'Playfair Display',serif;
+  color:#523b25;
+  font-size:27px;
+  line-height:1.4;
+  font-weight:600;
+  margin:0 0 20px;
 }
 
 .diary-page p {
-  color: #44382b;
-  font-size: 13px;
-  line-height: 1.9;
-  margin: 12px 0;
-  text-align: justify;
+  color:#44382b;
+  font-size:13px;
+  line-height:1.9;
+  margin:12px 0;
+  text-align:justify;
 }
 
 .dropcap::first-letter {
-  float: left;
-  font-family: 'Playfair Display', serif;
-  font-size: 46px;
-  line-height: .85;
-  padding: 5px 8px 0 0;
-  color: #966c3c;
+  float:left;
+  font-family:'Playfair Display',serif;
+  font-size:46px;
+  line-height:.85;
+  padding:5px 8px 0 0;
+  color:#966c3c;
 }
 
-/* PHOTO AREA */
+/* ẢNH */
 
 .photo-placeholder {
-  height: 180px;
-  margin: 20px 0;
-  padding: 15px;
-  border: 1px solid #c9ae84;
-  outline: 1px solid #e2d2b7;
-  outline-offset: -6px;
-  background: #eee3d0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #806849;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 19px;
-  font-style: italic;
+  height:180px;
+  margin:20px 0;
+  padding:15px;
+  border:1px solid #c9ae84;
+  outline:1px solid #e2d2b7;
+  outline-offset:-6px;
+  background:#eee3d0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#806849;
+  font-family:'Cormorant Garamond',serif;
+  font-size:19px;
+  font-style:italic;
 }
 
 .photo-caption {
-  text-align: center;
-  color: #907a5b;
-  font-size: 10px;
-  font-style: italic;
-  margin-top: -12px;
+  text-align:center;
+  color:#907a5b;
+  font-size:10px;
+  font-style:italic;
+  margin-top:-12px;
 }
 
-/* QUOTE AND STAMP */
-
 .quote {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  line-height: 1.5;
-  font-style: italic;
-  color: #87643d;
-  text-align: center;
-  margin: 22px 5px;
-  padding: 15px 12px;
-  border-top: 1px solid #d6c19f;
-  border-bottom: 1px solid #d6c19f;
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;
+  line-height:1.5;
+  font-style:italic;
+  color:#87643d;
+  text-align:center;
+  margin:22px 5px;
+  padding:15px 12px;
+  border-top:1px solid #d6c19f;
+  border-bottom:1px solid #d6c19f;
 }
 
 .stamp {
-  display: inline-block;
-  border: 1px solid #a47b50;
-  color: #936b42;
-  padding: 6px 10px;
-  transform: rotate(-5deg);
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 14px;
-  margin: 8px 0;
+  display:inline-block;
+  border:1px solid #a47b50;
+  color:#936b42;
+  padding:6px 10px;
+  transform:rotate(-5deg);
+  font-family:'Cormorant Garamond',serif;
+  font-size:14px;
+  margin:8px 0;
 }
-
-/* FOOTER OF EACH PAGE */
 
 .page-bottom {
-  position: absolute;
-  left: 38px;
-  right: 38px;
-  bottom: 25px;
-  border-top: 1px solid #dfceb0;
-  padding-top: 9px;
-  display: flex;
-  justify-content: space-between;
-  color: #987b54;
-  font-size: 10px;
+  position:absolute;
+  left:38px;
+  right:38px;
+  bottom:25px;
+  border-top:1px solid #dfceb0;
+  padding-top:9px;
+  display:flex;
+  justify-content:space-between;
+  color:#987b54;
+  font-size:10px;
 }
 
-/* CONTROLS */
+/* HAI TRANG CHIA SE */
+
+.community-page {
+  padding:29px 28px 43px;
+}
+
+.community-page .page-top {
+  margin-bottom:13px;
+}
+
+.community-page h2 {
+  font-size:25px;
+  margin-bottom:8px;
+}
+
+.community-page > p {
+  font-size:11px;
+  line-height:1.65;
+  margin:7px 0 10px;
+}
+
+.community-form {
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  position:relative;
+  z-index:2;
+}
+
+.community-form label {
+  font-size:10px;
+  font-weight:600;
+  color:#765839;
+}
+
+.community-form input,
+.community-form textarea {
+  width:100%;
+  border:1px solid #d5c09c;
+  background:rgba(255,255,255,.65);
+  padding:8px;
+  color:#493522;
+  font-family:inherit;
+  font-size:11px;
+  border-radius:3px;
+}
+
+.community-form textarea {
+  resize:vertical;
+  min-height:58px;
+  line-height:1.6;
+}
+
+.community-form button {
+  width:100%;
+  margin-top:3px;
+  padding:9px;
+  background:#536748;
+  border-color:#a18b5d;
+}
+
+.community-form button:hover {
+  background:#354b37;
+}
+
+.community-form button:disabled {
+  opacity:.6;
+  cursor:wait;
+}
+
+.community-message {
+  font-size:10px;
+  color:#536748;
+  min-height:13px;
+  line-height:1.5;
+}
+
+.community-divider {
+  text-align:center;
+  color:#a17c4c;
+  font-size:9px;
+  letter-spacing:2px;
+  margin:9px 0;
+  border-top:1px solid #d9c7a8;
+  padding-top:8px;
+}
+
+.memory-gallery {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px;
+  max-height:145px;
+  overflow-y:auto;
+  position:relative;
+  z-index:2;
+  padding:2px;
+}
+
+.memory-card {
+  background:#fffdf7;
+  padding:5px;
+  border:1px solid #d9c7a8;
+  box-shadow:1px 2px 5px #5b49351a;
+  min-width:0;
+}
+
+.memory-card img {
+  width:100%;
+  height:65px;
+  object-fit:cover;
+}
+
+.memory-card strong,
+.memory-card small {
+  display:block;
+  overflow-wrap:anywhere;
+  font-size:9px;
+  margin-top:4px;
+}
+
+.memory-card small {
+  color:#907a5b;
+}
+
+.feeling-list {
+  max-height:145px;
+  overflow-y:auto;
+  position:relative;
+  z-index:2;
+  padding:2px;
+}
+
+.feeling-card {
+  background:rgba(239,227,206,.75);
+  border-left:2px solid #a17c4c;
+  padding:7px 9px;
+  margin-bottom:7px;
+}
+
+.feeling-card strong {
+  color:#765839;
+  font-size:10px;
+}
+
+.feeling-card p {
+  font-size:10px;
+  line-height:1.55;
+  margin:4px 0;
+  overflow-wrap:anywhere;
+  white-space:pre-wrap;
+}
+
+.feeling-card small {
+  color:#987b54;
+  font-size:9px;
+}
+
+/* ĐIỀU KHIỂN */
 
 .controls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 18px;
-  margin-top: 28px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:18px;
+  margin-top:28px;
 }
 
 button {
-  background: #715237;
-  color: #fff5e5;
-  border: 1px solid #a98a60;
-  padding: 12px 20px;
-  font-family: inherit;
-  font-size: 12px;
-  cursor: pointer;
-  transition: .25s;
+  background:#715237;
+  color:#fff5e5;
+  border:1px solid #a98a60;
+  padding:12px 20px;
+  font-family:inherit;
+  font-size:12px;
+  cursor:pointer;
+  transition:.25s;
 }
 
 button:hover {
-  background: #493622;
-  transform: translateY(-2px);
+  background:#493622;
+  transform:translateY(-2px);
 }
 
 button:disabled {
-  opacity: .45;
-  cursor: default;
-  transform: none;
+  opacity:.45;
+  cursor:default;
+  transform:none;
 }
 
 #diary-status {
-  min-width: 90px;
-  text-align: center;
-  color: #654a30;
-  font-size: 12px;
-  font-weight: 600;
+  min-width:90px;
+  text-align:center;
+  color:#654a30;
+  font-size:12px;
+  font-weight:600;
 }
 
-/* FOOTER */
-
 footer {
-  text-align: center;
-  margin-top: 38px;
-  color: #806644;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 19px;
-  font-style: italic;
+  text-align:center;
+  margin-top:38px;
+  color:#806644;
+  font-family:'Cormorant Garamond',serif;
+  font-size:19px;
+  font-style:italic;
 }
 
 .footer-ornament {
-  font-size: 18px;
-  letter-spacing: 8px;
-  margin-bottom: 8px;
-  color: #a18359;
+  font-size:18px;
+  letter-spacing:8px;
+  margin-bottom:8px;
+  color:#a18359;
 }
 
-/* MOBILE */
+/* ĐIỆN THOẠI */
 
 @media(max-width:600px) {
   .background {
-    padding: 30px 8px 40px;
+    padding:30px 8px 40px;
   }
 
   .diary-book {
-    height: 540px;
+    height:540px;
   }
 
   .diary-page {
-    padding: 30px 24px;
+    padding:30px 24px;
   }
 
   .diary-page h2 {
-    font-size: 23px;
+    font-size:23px;
   }
 
   .diary-page p {
-    font-size: 12px;
-    line-height: 1.8;
+    font-size:12px;
+    line-height:1.8;
   }
 
   .photo-placeholder {
-    height: 145px;
+    height:145px;
   }
 
   .cover h2 {
-    font-size: 30px;
+    font-size:30px;
   }
 
   .page-bottom {
-    left: 24px;
-    right: 24px;
+    left:24px;
+    right:24px;
   }
 
   .controls {
-    gap: 8px;
+    gap:8px;
   }
 
-  button {
-    padding: 10px 12px;
-    font-size: 11px;
+  .controls button {
+    padding:10px 12px;
+    font-size:11px;
+  }
+
+  .community-page {
+    padding:22px 19px 40px;
+  }
+
+  .community-page h2 {
+    font-size:21px;
+  }
+
+  .community-page > p {
+    font-size:10px;
+  }
+
+  .memory-gallery,
+  .feeling-list {
+    max-height:115px;
   }
 }
 </style>
@@ -521,442 +673,250 @@ footer {
 <main class="background">
 
 <header>
-  <div class="eyebrow">
-    HÀNH TRÌNH KẾT NỐI GẠO THƠM ĐĂK LA
-  </div>
-
+  <div class="eyebrow">HÀNH TRÌNH KẾT NỐI GẠO THƠM ĐĂK LA</div>
   <h1>Nhật Ký Hành Trình</h1>
-
-  <div class="subtitle">
-    Lật mở từng trang – lưu giữ từng kỷ niệm
-  </div>
-
+  <div class="subtitle">Lật mở từng trang – lưu giữ từng kỷ niệm</div>
   <div class="header-decoration">❧ ✦ ❧</div>
 </header>
 
 <section class="book-area">
-
 <div class="diary-book">
 
-  <!-- BÌA TRƯỚC -->
+<!-- BÌA TRƯỚC -->
 
-  <div class="diary-page cover">
+<div class="diary-page cover">
+  <div class="cover-kicker">SỔ LƯU GIỮ HÀNH TRÌNH</div>
+  <div class="cover-ornament">❧ ✦ ❧</div>
+  <div class="cover-seal">🌾<small>ĐĂK LA</small></div>
+  <h2>NHẬT KÝ<br>HÀNH TRÌNH</h2>
+  <div class="cover-line"></div>
+  <p>GẠO THƠM ĐĂK LA</p>
+  <div class="cover-note">Một hạt gạo<br>Một hành trình</div>
+  <div class="cover-ornament">❧ ✦ ❧</div>
+</div>
 
-    <div class="cover-kicker">
-      SỔ LƯU GIỮ HÀNH TRÌNH
-    </div>
+<!-- TRANG 1 -->
 
-    <div class="cover-ornament">❧ ✦ ❧</div>
+<div class="diary-page">
+  <div class="page-top"><span>CHƯƠNG 01</span><span>Khởi đầu</span></div>
+  <div class="section-label">NHỮNG ĐIỀU BẮT ĐẦU</div>
+  <h2>Mọi hành trình đều bắt đầu từ một câu chuyện...</h2>
+  <p class="dropcap">Có những điều tưởng chừng rất quen thuộc nhưng chúng mình lại chưa thật sự hiểu hết về nó.</p>
+  <p>Hạt gạo xuất hiện trong mỗi bữa cơm hằng ngày. Nhưng phía sau những hạt gạo trắng ngần ấy là cả một hành trình lao động, vun trồng và gìn giữ.</p>
+  <div class="quote">“Đôi khi, những điều bình dị nhất lại chứa đựng những câu chuyện đáng nhớ nhất.”</div>
+  <p>Và chúng mình đã bắt đầu hành trình tìm hiểu câu chuyện của hạt gạo Đăk La từ chính sự tò mò ấy.</p>
+  <div class="page-bottom"><span>NHẬT KÝ ĐĂK LA</span><span>01</span></div>
+</div>
 
-    <div class="cover-seal">
-      🌾
-      <small>ĐĂK LA</small>
-    </div>
+<!-- TRANG 2 -->
 
-    <h2>NHẬT KÝ<br>HÀNH TRÌNH</h2>
+<div class="diary-page">
+  <div class="page-top"><span>CHƯƠNG 02</span><span>Tìm hiểu</span></div>
+  <div class="section-label">TỪ NHỮNG ĐIỀU QUEN THUỘC</div>
+  <h2>Hiểu hơn về hạt gạo quê hương</h2>
+  <p class="dropcap">Chúng mình bắt đầu tìm hiểu về Gạo Thơm Đăk La, từ nguồn gốc, đặc điểm đến quá trình canh tác và những giá trị mà hạt gạo mang lại.</p>
+  <div class="photo-placeholder">🌾<br>Đặt ảnh tìm hiểu về Gạo Thơm Đăk La tại đây</div>
+  <div class="photo-caption">Một góc nhìn về hạt gạo quê hương</div>
+  <p>Mỗi thông tin mới giúp chúng mình hiểu thêm về sản phẩm nông nghiệp địa phương và thêm trân trọng những giá trị gần gũi quanh mình.</p>
+  <div class="stamp">TÌM HIỂU • KHÁM PHÁ</div>
+  <div class="page-bottom"><span>HÀNH TRÌNH KẾT NỐI</span><span>02</span></div>
+</div>
 
-    <div class="cover-line"></div>
+<!-- TRANG 3 -->
 
-    <p>GẠO THƠM ĐĂK LA</p>
+<div class="diary-page">
+  <div class="page-top"><span>CHƯƠNG 03</span><span>Trải nghiệm</span></div>
+  <div class="section-label">ĐẾN GẦN HƠN VỚI CÁNH ĐỒNG</div>
+  <h2>Một ngày trên cánh đồng lúa</h2>
+  <p class="dropcap">Không chỉ tìm hiểu qua sách vở, chúng mình còn có cơ hội đến tận cánh đồng để quan sát và trải nghiệm thực tế.</p>
+  <div class="photo-placeholder">🌱<br>Đặt ảnh trải nghiệm tại cánh đồng ở đây</div>
+  <div class="photo-caption">Những khoảnh khắc trải nghiệm thực tế</div>
+  <p>Được tận mắt nhìn thấy những thửa ruộng và lắng nghe câu chuyện của người làm nông giúp chúng mình hiểu hơn về công sức phía sau mỗi hạt gạo.</p>
+  <div class="quote">“Muốn hiểu giá trị của hạt gạo, hãy một lần nhìn lại hành trình làm ra nó.”</div>
+  <div class="page-bottom"><span>NHỮNG KỶ NIỆM ĐẸP</span><span>03</span></div>
+</div>
 
-    <div class="cover-note">
-      Một hạt gạo<br>
-      Một hành trình
-    </div>
+<!-- TRANG 4 -->
 
-    <div class="cover-ornament">❧ ✦ ❧</div>
+<div class="diary-page">
+  <div class="page-top"><span>CHƯƠNG 04</span><span>Khám phá</span></div>
+  <div class="section-label">TỪ CÁNH ĐỒNG ĐẾN NHÀ MÁY</div>
+  <h2>Hành trình phía sau hạt gạo</h2>
+  <p class="dropcap">Sau khi tìm hiểu tại cánh đồng, chúng mình tiếp tục khám phá quá trình chế biến và xay xát để hiểu rõ hơn con đường từ hạt lúa đến hạt gạo thành phẩm.</p>
+  <div class="photo-placeholder">🏡<br>Đặt ảnh tham quan nhà máy tại đây</div>
+  <div class="photo-caption">Tìm hiểu quy trình chế biến gạo</div>
+  <p>Mỗi công đoạn đều có vai trò riêng. Qua đó, chúng mình nhận ra rằng để có được một bữa cơm ngon là cả một quá trình cần sự chăm chút và lao động.</p>
+  <div class="stamp">HỌC TỪ THỰC TẾ</div>
+  <div class="page-bottom"><span>MỘT HÀNH TRÌNH Ý NGHĨA</span><span>04</span></div>
+</div>
 
+<!-- TRANG 5 -->
+
+<div class="diary-page">
+  <div class="page-top"><span>CHƯƠNG 05</span><span>Văn hóa</span></div>
+  <div class="section-label">GÌN GIỮ GIÁ TRỊ TRUYỀN THỐNG</div>
+  <h2>Khi hạt lúa gắn với văn hóa</h2>
+  <p class="dropcap">Qua việc tìm hiểu lễ mừng lúa mới của người Xơ Đăng, chúng mình hiểu thêm về lòng biết ơn đối với thiên nhiên, đất trời và những người làm ra hạt lúa.</p>
+  <div class="photo-placeholder">🌾<br>Đặt ảnh tìm hiểu lễ mừng lúa mới tại đây</div>
+  <div class="photo-caption">Nét đẹp văn hóa gắn với mùa lúa mới</div>
+  <div class="quote">“Uống nước nhớ nguồn – Trân trọng những giá trị được trao truyền.”</div>
+  <p>Đó cũng là lý do chúng mình muốn tìm hiểu và góp phần gìn giữ những nét đẹp văn hóa quê hương.</p>
+  <div class="page-bottom"><span>GÌN GIỮ VÀ TRÂN TRỌNG</span><span>05</span></div>
+</div>
+
+<!-- TRANG 6 -->
+
+<div class="diary-page">
+  <div class="page-top"><span>CHƯƠNG 06</span><span>Sáng tạo</span></div>
+  <div class="section-label">KHI HẠT GẠO KỂ CHUYỆN</div>
+  <h2>Những ý tưởng từ hạt gạo</h2>
+  <p class="dropcap">Những hạt gạo quen thuộc còn có thể trở thành chất liệu sáng tạo nên các tác phẩm nghệ thuật độc đáo.</p>
+  <div class="photo-placeholder">🎨<br>Đặt ảnh tranh gạo và sản phẩm sáng tạo tại đây</div>
+  <div class="photo-caption">Tác phẩm nghệ thuật từ hạt gạo</div>
+  <p>Qua những hoạt động sáng tạo, chúng mình mong muốn mỗi bạn học sinh có thể tìm thấy một cách riêng để thể hiện tình cảm và sự trân trọng đối với quê hương.</p>
+  <div class="stamp">SÁNG TẠO • CHIA SẺ</div>
+  <div class="page-bottom"><span>GÓC SÁNG TẠO</span><span>06</span></div>
+</div>
+
+<!-- TRANG 7 -->
+
+<div class="diary-page">
+  <div class="page-top"><span>CHƯƠNG 07</span><span>Nhìn lại</span></div>
+  <div class="section-label">NHỮNG ĐIỀU CÒN ĐỌNG LẠI</div>
+  <h2>Điều chúng mình nhận được</h2>
+  <p class="dropcap">Sau hành trình, điều chúng mình nhận được không chỉ là những kiến thức mới mà còn là những trải nghiệm và kỷ niệm đáng nhớ.</p>
+  <div class="photo-placeholder">📷<br>Đặt ảnh kỷ niệm của nhóm tại đây</div>
+  <div class="photo-caption">Một hành trình – Nhiều kỷ niệm</div>
+  <p>Chúng mình hiểu hơn về công sức của người nông dân, thêm quan tâm đến sản phẩm địa phương và nhận ra rằng những giá trị quê hương luôn đáng được gìn giữ.</p>
+  <div class="quote">“Điều đẹp nhất sau mỗi hành trình là những điều ta hiểu và trân trọng hơn.”</div>
+  <div class="page-bottom"><span>NHỮNG ĐIỀU ĐỌNG LẠI</span><span>07</span></div>
+</div>
+
+<!-- TRANG 8 -->
+
+<div class="diary-page">
+  <div class="page-top"><span>CHƯƠNG 08</span><span>Lan tỏa</span></div>
+  <div class="section-label">CÂU CHUYỆN ĐƯỢC TIẾP NỐI</div>
+  <h2>Hành trình vẫn còn tiếp tục</h2>
+  <p class="dropcap">Chúng mình hy vọng những câu chuyện nhỏ này sẽ giúp nhiều bạn học sinh hiểu hơn, quan tâm hơn và cùng nhau gìn giữ những giá trị nông nghiệp, văn hóa của quê hương.</p>
+  <div class="quote">“Một hạt gạo – Một câu chuyện – Một giá trị cần được gìn giữ.”</div>
+  <p>Cảm ơn bạn đã dành thời gian lật mở từng trang nhật ký và đồng hành cùng chúng mình trong hành trình kết nối Gạo Thơm Đăk La.</p>
+  <div class="stamp">CẢM ƠN BẠN!</div>
+  <div class="page-bottom"><span>HẸN GẶP LẠI</span><span>08</span></div>
+</div>
+
+<!-- TRANG 9: KHOẢNH KHẮC -->
+
+<div class="diary-page community-page">
+
+  <div class="page-top">
+    <span>CHƯƠNG 09</span>
+    <span>Kỷ niệm</span>
   </div>
 
-  <!-- TRANG 1 -->
+  <div class="section-label">GÓC LƯU GIỮ KỶ NIỆM</div>
 
-  <div class="diary-page">
+  <h2>Khoảnh khắc của chúng mình</h2>
 
-    <div class="page-top">
-      <span>CHƯƠNG 01</span>
-      <span>Khởi đầu</span>
-    </div>
+  <p>
+    Mỗi bức ảnh là một câu chuyện. Hãy cùng lưu giữ
+    những khoảnh khắc đáng nhớ trong hành trình nhé!
+  </p>
 
-    <div class="section-label">
-      NHỮNG ĐIỀU BẮT ĐẦU
-    </div>
+  <form id="memory-form" class="community-form">
 
-    <h2>Mọi hành trình đều bắt đầu từ một câu chuyện...</h2>
+    <label>Tên hoặc biệt danh của bạn</label>
+    <input id="memory-name" type="text"
+      maxlength="50" placeholder="Nhập tên của bạn..." required>
 
-    <p class="dropcap">
-      Có những điều tưởng chừng rất quen thuộc nhưng chúng mình
-      lại chưa thật sự hiểu hết về nó.
-    </p>
+    <label>Chọn một bức ảnh kỷ niệm</label>
+    <input id="memory-image" type="file"
+      accept="image/jpeg,image/png,image/webp" required>
 
-    <p>
-      Hạt gạo xuất hiện trong mỗi bữa cơm hằng ngày. Nhưng phía
-      sau những hạt gạo trắng ngần ấy là cả một hành trình lao
-      động, vun trồng và gìn giữ.
-    </p>
+    <label>Chú thích cho bức ảnh</label>
+    <textarea id="memory-caption" maxlength="300"
+      placeholder="Khoảnh khắc này có gì đặc biệt?"></textarea>
 
-    <div class="quote">
-      “Đôi khi, những điều bình dị nhất lại chứa đựng những
-      câu chuyện đáng nhớ nhất.”
-    </div>
+    <button type="submit" id="memory-submit">
+      🌾 Gửi kỷ niệm
+    </button>
 
-    <p>
-      Và chúng mình đã bắt đầu hành trình tìm hiểu câu chuyện
-      của hạt gạo Đăk La từ chính sự tò mò ấy.
-    </p>
+    <div id="memory-message" class="community-message" aria-live="polite"></div>
+  </form>
 
-    <div class="page-bottom">
-      <span>NHẬT KÝ ĐĂK LA</span>
-      <span>01</span>
-    </div>
+  <div class="community-divider">✦ KỶ NIỆM ĐƯỢC CHIA SẺ ✦</div>
 
+  <div id="memory-gallery" class="memory-gallery">
+    <p>Đang tải những kỷ niệm...</p>
   </div>
 
-  <!-- TRANG 2 -->
+  <div class="page-bottom">
+    <span>GÓC LƯU GIỮ KỶ NIỆM</span>
+    <span>09</span>
+  </div>
+</div>
 
-  <div class="diary-page">
+<!-- TRANG 10: CẢM XÚC -->
 
-    <div class="page-top">
-      <span>CHƯƠNG 02</span>
-      <span>Tìm hiểu</span>
-    </div>
+<div class="diary-page community-page">
 
-    <div class="section-label">
-      TỪ NHỮNG ĐIỀU QUEN THUỘC
-    </div>
-
-    <h2>Hiểu hơn về hạt gạo quê hương</h2>
-
-    <p class="dropcap">
-      Chúng mình bắt đầu tìm hiểu về Gạo Thơm Đăk La, từ nguồn
-      gốc, đặc điểm đến quá trình canh tác và những giá trị
-      mà hạt gạo mang lại.
-    </p>
-
-    <div class="photo-placeholder">
-      🌾<br>
-      Đặt ảnh tìm hiểu về Gạo Thơm Đăk La tại đây
-    </div>
-
-    <div class="photo-caption">
-      Một góc nhìn về hạt gạo quê hương
-    </div>
-
-    <p>
-      Mỗi thông tin mới giúp chúng mình hiểu thêm về sản phẩm
-      nông nghiệp địa phương và thêm trân trọng những giá trị
-      gần gũi quanh mình.
-    </p>
-
-    <div class="stamp">TÌM HIỂU • KHÁM PHÁ</div>
-
-    <div class="page-bottom">
-      <span>HÀNH TRÌNH KẾT NỐI</span>
-      <span>02</span>
-    </div>
-
+  <div class="page-top">
+    <span>CHƯƠNG 10</span>
+    <span>Cảm xúc</span>
   </div>
 
-  <!-- TRANG 3 -->
+  <div class="section-label">GỬI LẠI MỘT CHÚT CẢM XÚC</div>
 
-  <div class="diary-page">
+  <h2>Những dòng cảm xúc</h2>
 
-    <div class="page-top">
-      <span>CHƯƠNG 03</span>
-      <span>Trải nghiệm</span>
-    </div>
+  <p>
+    Sau khi đồng hành cùng hành trình, bạn muốn chia sẻ
+    điều gì? Hãy viết lại cảm nhận của mình tại đây.
+  </p>
 
-    <div class="section-label">
-      ĐẾN GẦN HƠN VỚI CÁNH ĐỒNG
-    </div>
+  <form id="feeling-form" class="community-form">
 
-    <h2>Một ngày trên cánh đồng lúa</h2>
+    <label>Tên hoặc biệt danh của bạn</label>
+    <input id="feeling-name" type="text"
+      maxlength="50" placeholder="Nhập tên của bạn..." required>
 
-    <p class="dropcap">
-      Không chỉ tìm hiểu qua sách vở, chúng mình còn có cơ hội
-      đến tận cánh đồng để quan sát và trải nghiệm thực tế.
-    </p>
+    <label>Điều bạn muốn gửi gắm</label>
+    <textarea id="feeling-content" maxlength="2000"
+      rows="4"
+      placeholder="Hãy viết những cảm xúc chân thật của bạn..."
+      required></textarea>
 
-    <div class="photo-placeholder">
-      🌱<br>
-      Đặt ảnh trải nghiệm tại cánh đồng ở đây
-    </div>
+    <button type="submit" id="feeling-submit">
+      ✒ Gửi dòng cảm xúc
+    </button>
 
-    <div class="photo-caption">
-      Những khoảnh khắc trải nghiệm thực tế
-    </div>
+    <div id="feeling-message" class="community-message" aria-live="polite"></div>
+  </form>
 
-    <p>
-      Được tận mắt nhìn thấy những thửa ruộng và lắng nghe câu
-      chuyện của người làm nông giúp chúng mình hiểu hơn về
-      công sức phía sau mỗi hạt gạo.
-    </p>
+  <div class="community-divider">✦ LỜI NHẮN TỪ BẠN BÈ ✦</div>
 
-    <div class="quote">
-      “Muốn hiểu giá trị của hạt gạo, hãy một lần nhìn lại
-      hành trình làm ra nó.”
-    </div>
-
-    <div class="page-bottom">
-      <span>NHỮNG KỶ NIỆM ĐẸP</span>
-      <span>03</span>
-    </div>
-
+  <div id="feeling-list" class="feeling-list">
+    <p>Đang tải những dòng cảm xúc...</p>
   </div>
 
-  <!-- TRANG 4 -->
-
-  <div class="diary-page">
-
-    <div class="page-top">
-      <span>CHƯƠNG 04</span>
-      <span>Khám phá</span>
-    </div>
-
-    <div class="section-label">
-      TỪ CÁNH ĐỒNG ĐẾN NHÀ MÁY
-    </div>
-
-    <h2>Hành trình phía sau hạt gạo</h2>
-
-    <p class="dropcap">
-      Sau khi tìm hiểu tại cánh đồng, chúng mình tiếp tục khám
-      phá quá trình chế biến và xay xát để hiểu rõ hơn con
-      đường từ hạt lúa đến hạt gạo thành phẩm.
-    </p>
-
-    <div class="photo-placeholder">
-      🏡<br>
-      Đặt ảnh tham quan nhà máy tại đây
-    </div>
-
-    <div class="photo-caption">
-      Tìm hiểu quy trình chế biến gạo
-    </div>
-
-    <p>
-      Mỗi công đoạn đều có vai trò riêng. Qua đó, chúng mình
-      nhận ra rằng để có được một bữa cơm ngon là cả một quá
-      trình cần sự chăm chút và lao động.
-    </p>
-
-    <div class="stamp">HỌC TỪ THỰC TẾ</div>
-
-    <div class="page-bottom">
-      <span>MỘT HÀNH TRÌNH Ý NGHĨA</span>
-      <span>04</span>
-    </div>
-
+  <div class="page-bottom">
+    <span>NHỮNG DÒNG CẢM XÚC</span>
+    <span>10</span>
   </div>
+</div>
 
-  <!-- TRANG 5 -->
+<!-- BÌA SAU -->
 
-  <div class="diary-page">
-
-    <div class="page-top">
-      <span>CHƯƠNG 05</span>
-      <span>Văn hóa</span>
-    </div>
-
-    <div class="section-label">
-      GÌN GIỮ GIÁ TRỊ TRUYỀN THỐNG
-    </div>
-
-    <h2>Khi hạt lúa gắn với văn hóa</h2>
-
-    <p class="dropcap">
-      Qua việc tìm hiểu lễ mừng lúa mới của người Xơ Đăng,
-      chúng mình hiểu thêm về lòng biết ơn đối với thiên nhiên,
-      đất trời và những người làm ra hạt lúa.
-    </p>
-
-    <div class="photo-placeholder">
-      🌾<br>
-      Đặt ảnh tìm hiểu lễ mừng lúa mới tại đây
-    </div>
-
-    <div class="photo-caption">
-      Nét đẹp văn hóa gắn với mùa lúa mới
-    </div>
-
-    <div class="quote">
-      “Uống nước nhớ nguồn – Trân trọng những giá trị
-      được trao truyền.”
-    </div>
-
-    <p>
-      Đó cũng là lý do chúng mình muốn tìm hiểu và góp phần
-      gìn giữ những nét đẹp văn hóa quê hương.
-    </p>
-
-    <div class="page-bottom">
-      <span>GÌN GIỮ VÀ TRÂN TRỌNG</span>
-      <span>05</span>
-    </div>
-
-  </div>
-
-  <!-- TRANG 6 -->
-
-  <div class="diary-page">
-
-    <div class="page-top">
-      <span>CHƯƠNG 06</span>
-      <span>Sáng tạo</span>
-    </div>
-
-    <div class="section-label">
-      KHI HẠT GẠO KỂ CHUYỆN
-    </div>
-
-    <h2>Những ý tưởng từ hạt gạo</h2>
-
-    <p class="dropcap">
-      Những hạt gạo quen thuộc còn có thể trở thành chất liệu
-      sáng tạo nên các tác phẩm nghệ thuật độc đáo.
-    </p>
-
-    <div class="photo-placeholder">
-      🎨<br>
-      Đặt ảnh tranh gạo và sản phẩm sáng tạo tại đây
-    </div>
-
-    <div class="photo-caption">
-      Tác phẩm nghệ thuật từ hạt gạo
-    </div>
-
-    <p>
-      Qua những hoạt động sáng tạo, chúng mình mong muốn mỗi
-      bạn học sinh có thể tìm thấy một cách riêng để thể hiện
-      tình cảm và sự trân trọng đối với quê hương.
-    </p>
-
-    <div class="stamp">SÁNG TẠO • CHIA SẺ</div>
-
-    <div class="page-bottom">
-      <span>GÓC SÁNG TẠO</span>
-      <span>06</span>
-    </div>
-
-  </div>
-
-  <!-- TRANG 7 -->
-
-  <div class="diary-page">
-
-    <div class="page-top">
-      <span>CHƯƠNG 07</span>
-      <span>Nhìn lại</span>
-    </div>
-
-    <div class="section-label">
-      NHỮNG ĐIỀU CÒN ĐỌNG LẠI
-    </div>
-
-    <h2>Điều chúng mình nhận được</h2>
-
-    <p class="dropcap">
-      Sau hành trình, điều chúng mình nhận được không chỉ là
-      những kiến thức mới mà còn là những trải nghiệm và
-      kỷ niệm đáng nhớ.
-    </p>
-
-    <div class="photo-placeholder">
-      📷<br>
-      Đặt ảnh kỷ niệm của nhóm tại đây
-    </div>
-
-    <div class="photo-caption">
-      Một hành trình – Nhiều kỷ niệm
-    </div>
-
-    <p>
-      Chúng mình hiểu hơn về công sức của người nông dân,
-      thêm quan tâm đến sản phẩm địa phương và nhận ra rằng
-      những giá trị quê hương luôn đáng được gìn giữ.
-    </p>
-
-    <div class="quote">
-      “Điều đẹp nhất sau mỗi hành trình là những điều ta
-      hiểu và trân trọng hơn.”
-    </div>
-
-    <div class="page-bottom">
-      <span>NHỮNG ĐIỀU ĐỌNG LẠI</span>
-      <span>07</span>
-    </div>
-
-  </div>
-
-  <!-- TRANG 8 -->
-
-  <div class="diary-page">
-
-    <div class="page-top">
-      <span>CHƯƠNG 08</span>
-      <span>Lan tỏa</span>
-    </div>
-
-    <div class="section-label">
-      CÂU CHUYỆN ĐƯỢC TIẾP NỐI
-    </div>
-
-    <h2>Hành trình vẫn còn tiếp tục</h2>
-
-    <p class="dropcap">
-      Chúng mình hy vọng những câu chuyện nhỏ này sẽ giúp
-      nhiều bạn học sinh hiểu hơn, quan tâm hơn và cùng nhau
-      gìn giữ những giá trị nông nghiệp, văn hóa của quê hương.
-    </p>
-
-    <div class="quote">
-      “Một hạt gạo – Một câu chuyện –
-      Một giá trị cần được gìn giữ.”
-    </div>
-
-    <p>
-      Cảm ơn bạn đã dành thời gian lật mở từng trang nhật ký
-      và đồng hành cùng chúng mình trong hành trình kết nối
-      Gạo Thơm Đăk La.
-    </p>
-
-    <div class="stamp">CẢM ƠN BẠN!</div>
-
-    <div class="page-bottom">
-      <span>HẸN GẶP LẠI</span>
-      <span>08</span>
-    </div>
-
-  </div>
-
-  <!-- BÌA SAU -->
-
-  <div class="diary-page cover">
-
-    <div class="cover-kicker">
-      HÀNH TRÌNH KẾT NỐI
-    </div>
-
-    <div class="cover-ornament">❧ ✦ ❧</div>
-
-    <div class="cover-seal">
-      🌾
-      <small>ĐĂK LA</small>
-    </div>
-
-    <h2>CẢM ƠN<br>BẠN ĐÃ ĐỌC</h2>
-
-    <div class="cover-line"></div>
-
-    <p>GẠO THƠM ĐĂK LA</p>
-
-    <div class="cover-note">
-      Những giá trị quê hương<br>
-      sẽ còn được tiếp nối.
-    </div>
-
-    <div class="cover-ornament">❧ ✦ ❧</div>
-
-  </div>
+<div class="diary-page cover">
+  <div class="cover-kicker">HÀNH TRÌNH KẾT NỐI</div>
+  <div class="cover-ornament">❧ ✦ ❧</div>
+  <div class="cover-seal">🌾<small>ĐĂK LA</small></div>
+  <h2>CẢM ƠN<br>BẠN ĐÃ ĐỌC</h2>
+  <div class="cover-line"></div>
+  <p>GẠO THƠM ĐĂK LA</p>
+  <div class="cover-note">Những giá trị quê hương<br>sẽ còn được tiếp nối.</div>
+  <div class="cover-ornament">❧ ✦ ❧</div>
+</div>
 
 </div>
 </section>
@@ -975,6 +935,245 @@ footer {
 </footer>
 
 </main>
+
+<!-- SUPABASE -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+const SUPABASE_URL = "https://dmxlbxhfgfliwpzjleat.supabase.co";
+const SUPABASE_KEY = "sb_publishable_2Paz7KJcObe8Epbwc_5zQw_dWzZtBVr";
+
+const db = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
+
+const BUCKET = "student-memories";
+
+// HIỂN THỊ ẢNH
+
+async function loadMemories() {
+  const gallery = document.getElementById("memory-gallery");
+
+  const { data, error } = await db
+    .from("memories")
+    .select("*")
+    .order("created_at", { ascending:false })
+    .limit(30);
+
+  if (error) {
+    gallery.textContent = "Chưa thể tải kỷ niệm.";
+    console.error(error);
+    return;
+  }
+
+  gallery.replaceChildren();
+
+  if (!data.length) {
+    gallery.textContent = "Chưa có kỷ niệm nào. Hãy là người đầu tiên!";
+    return;
+  }
+
+  data.forEach(item => {
+    const card = document.createElement("div");
+    card.className = "memory-card";
+
+    const img = document.createElement("img");
+    img.src = item.image_url;
+    img.alt = "Ảnh kỷ niệm được chia sẻ";
+    img.loading = "lazy";
+
+    const name = document.createElement("strong");
+    name.textContent = item.student_name;
+
+    const caption = document.createElement("small");
+    caption.textContent = item.caption || "Một khoảnh khắc đáng nhớ";
+
+    card.append(img, name, caption);
+    gallery.appendChild(card);
+  });
+}
+
+
+// GỬI ẢNH
+
+document.getElementById("memory-form")
+.addEventListener("submit", async event => {
+
+  event.preventDefault();
+
+  const button = document.getElementById("memory-submit");
+  const message = document.getElementById("memory-message");
+
+  const name = document.getElementById("memory-name").value.trim();
+  const file = document.getElementById("memory-image").files[0];
+  const caption = document.getElementById("memory-caption").value.trim();
+
+  if (!name || !file) return;
+
+  if (!["image/jpeg","image/png","image/webp"].includes(file.type)) {
+    message.textContent = "Vui lòng chọn ảnh JPG, PNG hoặc WEBP.";
+    return;
+  }
+
+  if (file.size > 5 * 1024 * 1024) {
+    message.textContent = "Ảnh không được lớn hơn 5 MB.";
+    return;
+  }
+
+  button.disabled = true;
+  button.textContent = "Đang gửi ảnh...";
+
+  try {
+    const extension =
+      file.type === "image/png" ? "png" :
+      file.type === "image/webp" ? "webp" : "jpg";
+
+    const filePath =
+      Date.now() + "-" +
+      Math.random().toString(36).slice(2) +
+      "." + extension;
+
+    const { error: uploadError } = await db.storage
+      .from(BUCKET)
+      .upload(filePath, file, {
+        contentType:file.type,
+        upsert:false
+      });
+
+    if (uploadError) throw uploadError;
+
+    const { data: publicData } = db.storage
+      .from(BUCKET)
+      .getPublicUrl(filePath);
+
+    const { error: insertError } = await db
+      .from("memories")
+      .insert({
+        student_name:name,
+        image_url:publicData.publicUrl,
+        caption:caption
+      });
+
+    if (insertError) throw insertError;
+
+    message.textContent = "Đã gửi kỷ niệm thành công! 🌾";
+    event.target.reset();
+
+    await loadMemories();
+
+  } catch (error) {
+    console.error(error);
+    message.textContent = "Chưa gửi được. Vui lòng thử lại.";
+  } finally {
+    button.disabled = false;
+    button.textContent = "🌾 Gửi kỷ niệm";
+  }
+});
+
+
+// HIỂN THỊ CẢM XÚC
+
+async function loadFeelings() {
+  const list = document.getElementById("feeling-list");
+
+  const { data, error } = await db
+    .from("feelings")
+    .select("*")
+    .order("created_at", { ascending:false })
+    .limit(30);
+
+  if (error) {
+    list.textContent = "Chưa thể tải cảm xúc.";
+    console.error(error);
+    return;
+  }
+
+  list.replaceChildren();
+
+  if (!data.length) {
+    list.textContent = "Hãy là người đầu tiên để lại cảm xúc nhé!";
+    return;
+  }
+
+  data.forEach(item => {
+    const card = document.createElement("div");
+    card.className = "feeling-card";
+
+    const name = document.createElement("strong");
+    name.textContent = item.student_name;
+
+    const content = document.createElement("p");
+    content.textContent = item.content;
+
+    const date = document.createElement("small");
+    date.textContent = new Date(item.created_at)
+      .toLocaleDateString("vi-VN");
+
+    card.append(name, content, date);
+    list.appendChild(card);
+  });
+}
+
+
+// GỬI CẢM XÚC
+
+document.getElementById("feeling-form")
+.addEventListener("submit", async event => {
+
+  event.preventDefault();
+
+  const button = document.getElementById("feeling-submit");
+  const message = document.getElementById("feeling-message");
+
+  const name = document.getElementById("feeling-name").value.trim();
+  const content = document.getElementById("feeling-content").value.trim();
+
+  if (!name || !content) return;
+
+  button.disabled = true;
+  button.textContent = "Đang gửi...";
+
+  try {
+    const { error } = await db
+      .from("feelings")
+      .insert({
+        student_name:name,
+        content:content
+      });
+
+    if (error) throw error;
+
+    message.textContent = "Cảm xúc của bạn đã được lưu! ✨";
+    event.target.reset();
+
+    await loadFeelings();
+
+  } catch (error) {
+    console.error(error);
+    message.textContent = "Chưa gửi được. Vui lòng thử lại.";
+  } finally {
+    button.disabled = false;
+    button.textContent = "✒ Gửi dòng cảm xúc";
+  }
+});
+
+
+// KHỞI ĐỘNG VÀ CẬP NHẬT NỘI DUNG
+
+loadMemories();
+loadFeelings();
+
+// Tự tải lại nội dung mới mỗi 20 giây
+setInterval(() => {
+  loadMemories();
+  loadFeelings();
+}, 20000);
+
+</script>
+
+<!-- HIỆU ỨNG LẬT TRANG -->
 
 <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.min.js"></script>
 <script src="diary.js"></script>

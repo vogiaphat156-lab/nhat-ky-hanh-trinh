@@ -5,13 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const prevButton = document.getElementById("diary-prev");
   const status = document.getElementById("diary-status");
 
-  if (!book) return;
-
-  if (!window.St || !window.St.PageFlip) {
-    if (status) {
-      status.textContent = "Không tải được sách";
-    }
-    console.error("PageFlip library chưa được tải.");
+  if (!book || !window.St || !window.St.PageFlip) {
+    console.error("Không tải được PageFlip.");
+    if (status) status.textContent = "Lỗi tải nhật ký";
     return;
   }
 
@@ -25,12 +21,13 @@ document.addEventListener("DOMContentLoaded", () => {
     maxWidth: 1000,
     minHeight: 360,
     maxHeight: 1300,
-    maxShadowOpacity: 0.35,
     showCover: true,
     usePortrait: true,
-    mobileScrollSupport: true,
-    flippingTime: 900,
     drawShadow: true,
+    maxShadowOpacity: 0.3,
+    flippingTime: 700,
+    mobileScrollSupport: false,
+    useMouseEvents: true,
     autoSize: true,
     startPage: 0
   });
@@ -39,41 +36,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updateStatus() {
     const current = pageFlip.getCurrentPageIndex();
-    const total = pages.length;
 
-    if (status) {
-      status.textContent = `Trang ${current + 1} / ${total}`;
-    }
+    status.textContent =
+      `Trang ${current + 1} / ${pages.length}`;
 
-    if (prevButton) {
-      prevButton.disabled = current <= 0;
-    }
-
-    if (nextButton) {
-      nextButton.disabled = current >= total - 1;
-    }
+    prevButton.disabled = current <= 0;
+    nextButton.disabled = current >= pages.length - 1;
   }
 
-  nextButton?.addEventListener("click", () => {
+  nextButton.addEventListener("click", () => {
     pageFlip.flipNext();
   });
 
-  prevButton?.addEventListener("click", () => {
+  prevButton.addEventListener("click", () => {
     pageFlip.flipPrev();
   });
 
   pageFlip.on("flip", updateStatus);
 
-  pageFlip.on("changeState", updateStatus);
+  document.addEventListener("keydown", event => {
+    if (
+      event.target.matches("input, textarea, select") ||
+      event.target.isContentEditable
+    ) return;
 
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "ArrowRight") {
-      pageFlip.flipNext();
-    }
-
-    if (event.key === "ArrowLeft") {
-      pageFlip.flipPrev();
-    }
+    if (event.key === "ArrowRight") pageFlip.flipNext();
+    if (event.key === "ArrowLeft") pageFlip.flipPrev();
   });
 
   updateStatus();

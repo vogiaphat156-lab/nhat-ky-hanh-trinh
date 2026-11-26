@@ -1,53 +1,46 @@
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
+  const book = document.querySelector(".diary-book");
 
-  const book = document.getElementById("diary-book");
+  if (!book) return;
 
-  if (!book || !window.St) {
-    console.error("Không tìm thấy cuốn nhật ký hoặc thư viện PageFlip!");
-    return;
-  }
-
-  // Khởi tạo hiệu ứng lật trang
   const pageFlip = new St.PageFlip(book, {
-    width: 400,
-    height: 560,
+    width: 500,
+    height: 650,
     size: "stretch",
-
-    minWidth: 280,
-    maxWidth: 400,
-    minHeight: 390,
-    maxHeight: 560,
-
+    minWidth: 300,
+    maxWidth: 1000,
+    minHeight: 400,
+    maxHeight: 1200,
+    maxShadowOpacity: 0.3,
     showCover: true,
-    usePortrait: true,
-    drawShadow: true,
-    flippingTime: 1000,
-    maxShadowOpacity: 0.4,
-    mobileScrollSupport: true
+    mobileScrollSupport: false,
+    flippingTime: 800
   });
 
-  // Đọc các trang nhật ký
   pageFlip.loadFromHTML(
     document.querySelectorAll(".diary-page")
   );
 
-  // Nút trang tiếp
-  document.getElementById("diary-next")
-    .addEventListener("click", function () {
-      pageFlip.flipNext();
-    });
+  const next = document.getElementById("diary-next");
+  const prev = document.getElementById("diary-prev");
+  const status = document.getElementById("diary-status");
 
-  // Nút trang trước
-  document.getElementById("diary-prev")
-    .addEventListener("click", function () {
-      pageFlip.flipPrev();
-    });
+  function updateStatus() {
+    if (status) {
+      status.textContent =
+        `Trang ${pageFlip.getCurrentPageIndex() + 1}`;
+    }
+  }
 
-  // Hiển thị số trang
-  pageFlip.on("flip", function (event) {
-    document.getElementById("diary-status").textContent =
-      "Trang " + (event.data + 1);
+  next?.addEventListener("click", () => {
+    pageFlip.flipNext();
   });
 
+  prev?.addEventListener("click", () => {
+    pageFlip.flipPrev();
+  });
+
+  pageFlip.on("flip", updateStatus);
+  updateStatus();
 });

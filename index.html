@@ -158,6 +158,7 @@ h1 {
  pointer-events:none;
 }
 
+/* BÌA CỔ ĐIỂN - GIỮ LẠI CHO CÁC TRANG CŨ NẾU CẦN */
 .cover {
  justify-content:center;
  align-items:center;
@@ -190,6 +191,37 @@ h1 {
 .cover:before {top:20px}
 .cover:after {bottom:20px}
 
+/* BÌA ĐẦU VÀ BÌA CUỐI DÙNG ẢNH RIÊNG */
+.cover-image {
+ padding:0 !important;
+ margin:0;
+ border:none !important;
+ outline:none !important;
+ background:#f4ead9 !important;
+ overflow:hidden !important;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+}
+
+.cover-image:before,
+.cover-image:after {
+ display:none !important;
+ content:none !important;
+}
+
+.cover-image img {
+ display:block;
+ width:100%;
+ height:100%;
+ object-fit:contain;
+ object-position:center;
+ border:0;
+ margin:0;
+ padding:0;
+}
+
+/* CÁC TRANG NHẬT KÝ */
 .cover-kicker {
  font-size:11px;
  letter-spacing:3px;
@@ -640,15 +672,12 @@ footer {
 <section class="book-area">
 <div class="diary-book">
 
-<div class="diary-page cover">
- <div class="cover-kicker">SỔ LƯU GIỮ HÀNH TRÌNH</div>
- <div class="cover-ornament">❧ ✦ ❧</div>
- <div class="cover-seal">🌾<small>ĐĂK LA</small></div>
- <h2>NHẬT KÝ<br>HÀNH TRÌNH</h2>
- <div class="cover-line"></div>
- <p>GẠO THƠM ĐĂK LA</p>
- <div class="cover-note">Một hạt gạo<br>Một hành trình</div>
- <div class="cover-ornament">❧ ✦ ❧</div>
+<!-- BÌA ĐẦU: THAY ẢNH TẠI images/bia-tram-6.png -->
+<div class="diary-page cover cover-image">
+ <img
+  src="images/bia-tram-6.png"
+  alt="Bìa đầu Trạm 6 – Nhật ký hành trình Gạo Thơm Đăk La"
+ >
 </div>
 
 <div class="diary-page">
@@ -798,15 +827,12 @@ footer {
  <div class="page-bottom"><span>NHỮNG DÒNG CẢM XÚC</span><span>10</span></div>
 </div>
 
-<div class="diary-page cover">
- <div class="cover-kicker">HÀNH TRÌNH KẾT NỐI</div>
- <div class="cover-ornament">❧ ✦ ❧</div>
- <div class="cover-seal">🌾<small>ĐĂK LA</small></div>
- <h2>CẢM ƠN<br>BẠN ĐÃ ĐỌC</h2>
- <div class="cover-line"></div>
- <p>GẠO THƠM ĐĂK LA</p>
- <div class="cover-note">Những giá trị quê hương<br>sẽ còn được tiếp nối.</div>
- <div class="cover-ornament">❧ ✦ ❧</div>
+<!-- BÌA CUỐI: THAY ẢNH TẠI images/bia-cuoi-tram-6.png -->
+<div class="diary-page cover cover-image">
+ <img
+  src="images/bia-cuoi-tram-6.png"
+  alt="Bìa cuối Trạm 6 – Nhật ký hành trình Gạo Thơm Đăk La"
+ >
 </div>
 
 </div>

@@ -11,1169 +11,1026 @@
 
 <style>
 :root {
-  --green:#354b37;
-  --gold:#c9a66b;
-  --cream:#fffaf0;
-  --brown:#493522;
+ --green:#354b37;
+ --gold:#c9a66b;
+ --cream:#fffaf0;
+ --brown:#493522;
+ --page-height:820px;
 }
 
-* {box-sizing:border-box;}
+* {box-sizing:border-box}
 
 body {
-  margin:0;
-  color:var(--brown);
-  font-family:'Be Vietnam Pro',sans-serif;
-  background:
-    radial-gradient(ellipse at 10% 15%,#fff8e9,transparent 35%),
-    radial-gradient(ellipse at 90% 85%,#cbb998,transparent 40%),
-    #e4d5bc;
+ margin:0;
+ color:var(--brown);
+ font-family:'Be Vietnam Pro',sans-serif;
+ background:
+ radial-gradient(ellipse at 10% 15%,#fff8e9,transparent 35%),
+ radial-gradient(ellipse at 90% 85%,#cbb998,transparent 40%),
+ #e4d5bc;
 }
 
 .background {
-  min-height:100vh;
-  padding:45px 15px 55px;
-  position:relative;
-  overflow:hidden;
+ min-height:100vh;
+ padding:42px 15px 55px;
+ position:relative;
+ overflow:hidden;
 }
 
-.background::before,
-.background::after {
-  content:"❧";
-  position:fixed;
-  color:rgba(111,83,48,.12);
-  font-family:serif;
-  font-size:190px;
-  pointer-events:none;
+.background:before,
+.background:after {
+ content:"❧";
+ position:fixed;
+ color:rgba(111,83,48,.12);
+ font-family:serif;
+ font-size:190px;
+ pointer-events:none;
+ z-index:0;
 }
 
-.background::before {
-  top:5px;
-  left:-35px;
-  transform:rotate(-35deg);
+.background:before {
+ top:5px;
+ left:-35px;
+ transform:rotate(-35deg);
 }
 
-.background::after {
-  bottom:0;
-  right:-30px;
-  transform:rotate(145deg);
+.background:after {
+ bottom:0;
+ right:-30px;
+ transform:rotate(145deg);
 }
 
 header,.book-area,.controls,footer {
-  position:relative;
-  z-index:1;
+ position:relative;
+ z-index:1;
 }
 
 header {
-  text-align:center;
-  margin-bottom:35px;
+ text-align:center;
+ margin:0 auto 30px;
 }
 
 .eyebrow {
-  color:#927047;
-  font-size:11px;
-  font-weight:600;
-  letter-spacing:4px;
+ color:#76542f;
+ font-size:11px;
+ font-weight:700;
+ letter-spacing:3px;
 }
 
 h1 {
-  font-family:'Playfair Display',serif;
-  font-size:clamp(30px,5vw,48px);
-  font-weight:600;
-  color:#493522;
-  margin:13px 0 8px;
+ font-family:'Playfair Display',serif;
+ font-size:clamp(30px,5vw,48px);
+ font-weight:600;
+ color:#493522;
+ margin:13px 0 8px;
 }
 
 .subtitle {
-  color:#816c50;
-  font-family:'Cormorant Garamond',serif;
-  font-size:22px;
-  font-style:italic;
+ color:#715a3d;
+ font-family:'Cormorant Garamond',serif;
+ font-size:22px;
+ font-style:italic;
 }
 
 .header-decoration {
-  color:#a17c4c;
-  font-size:22px;
-  margin-top:13px;
-  letter-spacing:9px;
+ color:#a17c4c;
+ font-size:22px;
+ margin-top:13px;
+ letter-spacing:9px;
 }
 
-/* CUỐN SỔ */
-
 .book-area {
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:12px 0;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ padding:12px 0;
 }
 
 .diary-book {
-  width:500px;
-  height:650px;
-  max-width:100%;
+ width:500px;
+ height:var(--page-height);
+ max-width:100%;
+ margin:auto;
 }
-
-/* GIẤY */
 
 .diary-page {
-  position:relative;
-  overflow:hidden;
-  padding:42px 38px;
-  color:var(--brown);
-  background:
-    radial-gradient(ellipse at 0% 0%,rgba(191,155,105,.12),transparent 38%),
-    radial-gradient(ellipse at 100% 100%,rgba(191,155,105,.12),transparent 35%),
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 29px,
-      rgba(157,126,86,.045) 30px
-    ),
-    var(--cream);
-  border:1px solid #d9c7a8;
+ position:relative;
+ display:flex;
+ flex-direction:column;
+ overflow-y:auto;
+ overflow-x:hidden;
+ height:100%;
+ padding:38px 34px 30px;
+ color:var(--brown);
+ background:
+ radial-gradient(ellipse at 0 0,rgba(191,155,105,.12),transparent 38%),
+ radial-gradient(ellipse at 100% 100%,rgba(191,155,105,.12),transparent 35%),
+ repeating-linear-gradient(0deg,transparent,transparent 29px,rgba(157,126,86,.045) 30px),
+ var(--cream);
+ border:1px solid #d9c7a8;
+ scrollbar-width:thin;
+ scrollbar-color:#c4a77b #f4ead9;
+ overscroll-behavior:contain;
 }
 
-.diary-page::before {
-  content:"";
-  position:absolute;
-  inset:9px;
-  border:1px solid rgba(160,123,75,.45);
-  pointer-events:none;
+.diary-page:before {
+ content:"";
+ position:absolute;
+ inset:9px;
+ border:1px solid rgba(160,123,75,.4);
+ pointer-events:none;
+ z-index:0;
 }
 
-.diary-page:not(.cover)::after {
-  content:"❧";
-  position:absolute;
-  right:18px;
-  bottom:7px;
-  color:rgba(155,119,72,.35);
-  font-size:35px;
-  pointer-events:none;
+.diary-page>* {
+ position:relative;
+ z-index:1;
+ flex-shrink:0;
 }
 
-/* BÌA */
+.diary-page:not(.cover):after {
+ content:"❧";
+ position:absolute;
+ right:16px;
+ bottom:5px;
+ color:rgba(155,119,72,.25);
+ font-size:30px;
+ pointer-events:none;
+}
 
 .cover {
-  position:relative;
-  overflow:hidden;
-  background:
-    radial-gradient(ellipse at 50% 45%,#566b4d 0%,#3b513b 55%,#263c2d 100%);
-  color:#f7e8c4;
-  border:12px double #c9a66b;
-  outline:1px solid #e6cc96;
-  outline-offset:-19px;
-  text-align:center;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  padding:45px 30px;
+ justify-content:center;
+ align-items:center;
+ text-align:center;
+ overflow:hidden;
+ padding:65px 28px;
+ background:radial-gradient(ellipse at 50% 45%,#667b58 0%,#354d38 58%,#1d3327 100%);
+ color:#fff4d9;
+ border:12px double #d8b875;
+ outline:1px solid #f0d9a5;
+ outline-offset:-19px;
 }
 
-.cover::before {
-  content:"❧  ✦  ❧";
-  position:absolute;
-  inset:25px 18px auto;
-  height:55px;
-  border:1px solid #c5a66d;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#e6cb92;
-  font-size:23px;
-  letter-spacing:8px;
+.cover:before,.cover:after {
+ content:"❧  ✦  ❧";
+ position:absolute;
+ left:18px;
+ right:18px;
+ height:48px;
+ border:1px solid #d8bd83;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ color:#f4dba7;
+ font-size:22px;
+ letter-spacing:8px;
+ z-index:2;
 }
 
-.cover::after {
-  content:"❧  ✦  ❧";
-  position:absolute;
-  inset:auto 18px 25px;
-  height:55px;
-  border:1px solid #c5a66d;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#e6cb92;
-  font-size:23px;
-  letter-spacing:8px;
-}
+.cover:before {top:20px}
+.cover:after {bottom:20px}
 
 .cover-kicker {
-  font-size:10px;
-  letter-spacing:4px;
-  color:#e5cb98;
-  margin-bottom:12px;
+ font-size:11px;
+ letter-spacing:3px;
+ color:#fff0c9;
+ margin-bottom:10px;
+ text-shadow:0 2px 5px #172719;
 }
 
 .cover-ornament {
-  color:#e8ce96;
-  font-size:32px;
-  margin:12px 0;
+ color:#f4dba7;
+ font-size:28px;
+ margin:10px 0;
 }
 
 .cover-seal {
-  width:82px;
-  height:82px;
-  border:2px solid #d5b77b;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  color:#f2dcae;
-  font-family:'Cormorant Garamond',serif;
-  font-size:27px;
-  margin:15px auto;
-  box-shadow:0 0 0 5px rgba(210,180,119,.13),
-             inset 0 0 10px rgba(210,180,119,.12);
+ width:78px;
+ height:78px;
+ border:2px solid #e3c98e;
+ border-radius:50%;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ flex-direction:column;
+ color:#fff1ca;
+ font-family:'Cormorant Garamond',serif;
+ font-size:27px;
+ margin:12px auto;
+ box-shadow:0 0 0 5px rgba(210,180,119,.16),inset 0 0 10px rgba(210,180,119,.15);
 }
 
 .cover-seal small {
-  font-family:'Be Vietnam Pro',sans-serif;
-  font-size:7px;
-  letter-spacing:2px;
+ font-family:'Be Vietnam Pro',sans-serif;
+ font-size:8px;
+ letter-spacing:2px;
 }
 
 .cover h2 {
-  font-family:'Playfair Display',serif;
-  font-size:38px;
-  line-height:1.4;
-  font-weight:600;
-  color:#fff0cf;
-  text-shadow:0 3px 8px rgba(0,0,0,.35);
-  margin:5px 0;
+ font-family:'Playfair Display',serif;
+ font-size:clamp(30px,7vw,40px);
+ line-height:1.25;
+ font-weight:700;
+ color:#fff8e8;
+ text-shadow:0 2px 2px #18291c,0 5px 14px rgba(0,0,0,.7);
+ margin:8px 0;
 }
 
 .cover-line {
-  width:160px;
-  height:2px;
-  background:linear-gradient(90deg,transparent,#e3c38a,transparent);
-  margin:20px auto;
+ width:165px;
+ height:2px;
+ background:linear-gradient(90deg,transparent,#f3d69a,transparent);
+ margin:16px auto;
 }
 
-.cover p {
-  font-size:11px;
-  letter-spacing:4px;
-  color:#ead5a9;
-  font-weight:600;
+.cover>p {
+ font-size:12px;
+ letter-spacing:3px;
+ color:#fff0c9;
+ font-weight:700;
+ text-shadow:0 2px 5px #172719;
 }
 
 .cover-note {
-  font-family:'Cormorant Garamond',serif;
-  font-size:21px;
-  font-style:italic;
-  line-height:1.5;
-  color:#f2dfb8;
-  margin-top:15px;
+ font-family:'Cormorant Garamond',serif;
+ font-size:22px;
+ font-style:italic;
+ line-height:1.45;
+ color:#fff3d6;
+ margin-top:10px;
+ text-shadow:0 2px 5px #172719;
 }
 
-/* ĐẦU TRANG */
-
 .page-top {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  border-bottom:1px solid #d7c3a2;
-  padding-bottom:10px;
-  margin-bottom:24px;
-  color:#9a7950;
-  font-size:10px;
-  letter-spacing:2px;
-  font-weight:600;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:12px;
+ border-bottom:1px solid #d7c3a2;
+ padding-bottom:10px;
+ margin-bottom:20px;
+ color:#76552f;
+ font-size:10px;
+ letter-spacing:1.5px;
+ font-weight:700;
 }
 
 .page-top span:last-child {
-  font-family:'Cormorant Garamond',serif;
-  font-size:16px;
-  font-style:italic;
-  letter-spacing:0;
+ font-family:'Cormorant Garamond',serif;
+ font-size:17px;
+ font-style:italic;
+ letter-spacing:0;
 }
 
 .section-label {
-  display:inline-block;
-  color:#85623d;
-  background:#efe3ce;
-  padding:6px 12px;
-  font-size:10px;
-  letter-spacing:2px;
-  margin-bottom:14px;
+ align-self:flex-start;
+ display:inline-block;
+ color:#684a2c;
+ background:#efe3ce;
+ padding:7px 11px;
+ font-size:10px;
+ letter-spacing:1.3px;
+ margin-bottom:13px;
+ font-weight:700;
 }
 
 .diary-page h2 {
-  font-family:'Playfair Display',serif;
-  color:#523b25;
-  font-size:27px;
-  line-height:1.4;
-  font-weight:600;
-  margin:0 0 20px;
+ font-family:'Playfair Display',serif;
+ color:#493522;
+ font-size:27px;
+ line-height:1.32;
+ font-weight:600;
+ margin:0 0 15px;
+ overflow-wrap:anywhere;
 }
 
 .diary-page p {
-  color:#44382b;
-  font-size:13px;
-  line-height:1.9;
-  margin:12px 0;
-  text-align:justify;
+ color:#44382b;
+ font-size:13px;
+ line-height:1.85;
+ margin:10px 0;
+ text-align:left;
+ overflow-wrap:anywhere;
 }
 
-.dropcap::first-letter {
-  float:left;
-  font-family:'Playfair Display',serif;
-  font-size:46px;
-  line-height:.85;
-  padding:5px 8px 0 0;
-  color:#966c3c;
+.dropcap:first-letter {
+ float:left;
+ font-family:'Playfair Display',serif;
+ font-size:44px;
+ line-height:.85;
+ padding:5px 8px 0 0;
+ color:#966c3c;
 }
-
-/* ẢNH */
 
 .photo-placeholder {
-  height:180px;
-  margin:20px 0;
-  padding:15px;
-  border:1px solid #c9ae84;
-  outline:1px solid #e2d2b7;
-  outline-offset:-6px;
-  background:#eee3d0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  color:#806849;
-  font-family:'Cormorant Garamond',serif;
-  font-size:19px;
-  font-style:italic;
+ min-height:170px;
+ margin:16px 0 12px;
+ padding:15px;
+ border:1px solid #c9ae84;
+ outline:1px solid #e2d2b7;
+ outline-offset:-6px;
+ background:#eee3d0;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ text-align:center;
+ color:#715a3d;
+ font-family:'Cormorant Garamond',serif;
+ font-size:19px;
+ font-style:italic;
 }
 
 .photo-caption {
-  text-align:center;
-  color:#907a5b;
-  font-size:10px;
-  font-style:italic;
-  margin-top:-12px;
+ text-align:center;
+ color:#715a3d;
+ font-size:11px;
+ font-style:italic;
+ margin:0 0 12px;
 }
 
 .quote {
-  font-family:'Cormorant Garamond',serif;
-  font-size:22px;
-  line-height:1.5;
-  font-style:italic;
-  color:#87643d;
-  text-align:center;
-  margin:22px 5px;
-  padding:15px 12px;
-  border-top:1px solid #d6c19f;
-  border-bottom:1px solid #d6c19f;
+ font-family:'Cormorant Garamond',serif;
+ font-size:21px;
+ line-height:1.45;
+ font-style:italic;
+ color:#76532f;
+ text-align:center;
+ margin:17px 4px;
+ padding:13px 10px;
+ border-top:1px solid #d6c19f;
+ border-bottom:1px solid #d6c19f;
 }
 
 .stamp {
-  display:inline-block;
-  border:1px solid #a47b50;
-  color:#936b42;
-  padding:6px 10px;
-  transform:rotate(-5deg);
-  font-family:'Cormorant Garamond',serif;
-  font-size:14px;
-  margin:8px 0;
+ align-self:flex-start;
+ display:inline-block;
+ border:1px solid #a47b50;
+ color:#76502d;
+ padding:6px 10px;
+ transform:rotate(-3deg);
+ font-family:'Cormorant Garamond',serif;
+ font-size:14px;
+ margin:8px 0 15px;
 }
 
 .page-bottom {
-  position:absolute;
-  left:38px;
-  right:38px;
-  bottom:25px;
-  border-top:1px solid #dfceb0;
-  padding-top:9px;
-  display:flex;
-  justify-content:space-between;
-  color:#987b54;
-  font-size:10px;
+ position:relative;
+ left:auto;
+ right:auto;
+ bottom:auto;
+ flex-shrink:0;
+ margin-top:auto;
+ padding-top:12px;
+ border-top:1px solid #dfceb0;
+ display:flex;
+ justify-content:space-between;
+ gap:8px;
+ color:#765a36;
+ font-size:10px;
 }
 
-/* HAI TRANG CHIA SE */
-
 .community-page {
-  padding:29px 28px 43px;
+ padding:28px 27px 25px;
 }
 
 .community-page .page-top {
-  margin-bottom:13px;
+ margin-bottom:12px;
 }
 
 .community-page h2 {
-  font-size:25px;
-  margin-bottom:8px;
+ font-size:24px;
+ margin-bottom:8px;
 }
 
-.community-page > p {
-  font-size:11px;
-  line-height:1.65;
-  margin:7px 0 10px;
+.community-page>p {
+ font-size:11px;
+ line-height:1.7;
+ margin:7px 0 12px;
 }
 
 .community-form {
-  display:flex;
-  flex-direction:column;
-  gap:6px;
-  position:relative;
-  z-index:2;
+ display:flex;
+ flex-direction:column;
+ gap:7px;
+ position:relative;
+ z-index:2;
 }
 
 .community-form label {
-  font-size:10px;
-  font-weight:600;
-  color:#765839;
+ font-size:11px;
+ font-weight:700;
+ color:#65482b;
 }
 
 .community-form input,
 .community-form textarea {
-  width:100%;
-  border:1px solid #d5c09c;
-  background:rgba(255,255,255,.65);
-  padding:8px;
-  color:#493522;
-  font-family:inherit;
-  font-size:11px;
-  border-radius:3px;
+ width:100%;
+ min-width:0;
+ border:1px solid #cbb58f;
+ background:rgba(255,255,255,.8);
+ padding:9px;
+ color:#493522;
+ font-family:inherit;
+ font-size:12px;
+ border-radius:4px;
 }
 
 .community-form textarea {
-  resize:vertical;
-  min-height:58px;
-  line-height:1.6;
+ resize:vertical;
+ min-height:62px;
+ line-height:1.5;
+}
+
+.community-form input:focus,
+.community-form textarea:focus {
+ outline:2px solid rgba(83,103,72,.3);
+ border-color:#536748;
 }
 
 .community-form button {
-  width:100%;
-  margin-top:3px;
-  padding:9px;
-  background:#536748;
-  border-color:#a18b5d;
+ width:100%;
+ margin-top:3px;
+ padding:10px;
+ background:#435b40;
+ border:1px solid #9c865b;
+ color:#fff8e8;
+ border-radius:3px;
 }
 
-.community-form button:hover {
-  background:#354b37;
-}
-
-.community-form button:disabled {
-  opacity:.6;
-  cursor:wait;
-}
+.community-form button:hover {background:#2e452f}
+.community-form button:disabled {opacity:.6;cursor:wait}
 
 .community-message {
-  font-size:10px;
-  color:#536748;
-  min-height:13px;
-  line-height:1.5;
+ font-size:11px;
+ color:#385638;
+ min-height:15px;
+ line-height:1.5;
+ overflow-wrap:anywhere;
 }
 
 .community-divider {
-  text-align:center;
-  color:#a17c4c;
-  font-size:9px;
-  letter-spacing:2px;
-  margin:9px 0;
-  border-top:1px solid #d9c7a8;
-  padding-top:8px;
+ text-align:center;
+ color:#76552f;
+ font-size:10px;
+ letter-spacing:1.5px;
+ margin:12px 0 9px;
+ border-top:1px solid #d9c7a8;
+ padding-top:10px;
 }
 
 .memory-gallery {
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:8px;
-  max-height:145px;
-  overflow-y:auto;
-  position:relative;
-  z-index:2;
-  padding:2px;
+ display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:8px;
+ max-height:190px;
+ overflow-y:auto;
+ position:relative;
+ z-index:2;
+ padding:2px;
+ scrollbar-width:thin;
 }
 
 .memory-card {
-  background:#fffdf7;
-  padding:5px;
-  border:1px solid #d9c7a8;
-  box-shadow:1px 2px 5px #5b49351a;
-  min-width:0;
+ background:#fffdf7;
+ padding:6px;
+ border:1px solid #d9c7a8;
+ box-shadow:1px 2px 5px #5b49351a;
+ min-width:0;
 }
 
 .memory-card img {
-  width:100%;
-  height:65px;
-  object-fit:cover;
+ display:block;
+ width:100%;
+ height:78px;
+ object-fit:cover;
 }
 
 .memory-card strong,
 .memory-card small {
-  display:block;
-  overflow-wrap:anywhere;
-  font-size:9px;
-  margin-top:4px;
+ display:block;
+ overflow-wrap:anywhere;
+ font-size:10px;
+ margin-top:5px;
 }
 
-.memory-card small {
-  color:#907a5b;
-}
+.memory-card small {color:#765a3b}
 
 .feeling-list {
-  max-height:145px;
-  overflow-y:auto;
-  position:relative;
-  z-index:2;
-  padding:2px;
+ max-height:210px;
+ overflow-y:auto;
+ position:relative;
+ z-index:2;
+ padding:2px;
+ scrollbar-width:thin;
 }
 
 .feeling-card {
-  background:rgba(239,227,206,.75);
-  border-left:2px solid #a17c4c;
-  padding:7px 9px;
-  margin-bottom:7px;
+ background:rgba(239,227,206,.8);
+ border-left:3px solid #a17c4c;
+ padding:8px 10px;
+ margin-bottom:8px;
+ overflow-wrap:anywhere;
 }
 
 .feeling-card strong {
-  color:#765839;
-  font-size:10px;
+ color:#684a2c;
+ font-size:11px;
 }
 
 .feeling-card p {
-  font-size:10px;
-  line-height:1.55;
-  margin:4px 0;
-  overflow-wrap:anywhere;
-  white-space:pre-wrap;
+ font-size:11px;
+ line-height:1.6;
+ margin:5px 0;
+ overflow-wrap:anywhere;
+ white-space:pre-wrap;
 }
 
 .feeling-card small {
-  color:#987b54;
-  font-size:9px;
+ color:#765a36;
+ font-size:10px;
 }
 
-/* ĐIỀU KHIỂN */
-
 .controls {
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:18px;
-  margin-top:28px;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ gap:16px;
+ margin-top:25px;
 }
 
 button {
-  background:#715237;
-  color:#fff5e5;
-  border:1px solid #a98a60;
-  padding:12px 20px;
-  font-family:inherit;
-  font-size:12px;
-  cursor:pointer;
-  transition:.25s;
+ background:#715237;
+ color:#fff5e5;
+ border:1px solid #a98a60;
+ padding:12px 19px;
+ font-family:inherit;
+ font-size:12px;
+ cursor:pointer;
+ transition:.2s;
+ border-radius:3px;
 }
 
 button:hover {
-  background:#493622;
-  transform:translateY(-2px);
+ background:#493622;
+ transform:translateY(-1px);
 }
 
 button:disabled {
-  opacity:.45;
-  cursor:default;
-  transform:none;
+ opacity:.45;
+ cursor:default;
+ transform:none;
 }
 
 #diary-status {
-  min-width:90px;
-  text-align:center;
-  color:#654a30;
-  font-size:12px;
-  font-weight:600;
+ min-width:90px;
+ text-align:center;
+ color:#654a30;
+ font-size:12px;
+ font-weight:700;
 }
 
 footer {
-  text-align:center;
-  margin-top:38px;
-  color:#806644;
-  font-family:'Cormorant Garamond',serif;
-  font-size:19px;
-  font-style:italic;
+ text-align:center;
+ margin-top:32px;
+ color:#715a3d;
+ font-family:'Cormorant Garamond',serif;
+ font-size:19px;
+ font-style:italic;
 }
 
 .footer-ornament {
-  font-size:18px;
-  letter-spacing:8px;
-  margin-bottom:8px;
-  color:#a18359;
+ font-size:18px;
+ letter-spacing:8px;
+ margin-bottom:8px;
+ color:#8b6b42;
 }
 
-/* ĐIỆN THOẠI */
-
 @media(max-width:600px) {
-  .background {
-    padding:30px 8px 40px;
-  }
+ .background {padding:25px 8px 35px}
+ .diary-book {width:min(500px,100%);height:760px}
+ .diary-page {padding:30px 23px 24px}
+ .diary-page h2 {font-size:23px}
+ .diary-page p {font-size:12px;line-height:1.75}
+ .photo-placeholder {min-height:145px}
+ .community-page {padding:23px 18px 22px}
+ .community-page h2 {font-size:21px}
+ .controls {gap:7px}
+ .controls button {padding:10px 11px;font-size:11px}
+ #diary-status {min-width:65px;font-size:11px}
+ .memory-gallery {max-height:170px}
+ .feeling-list {max-height:190px}
+}
 
-  .diary-book {
-    height:540px;
-  }
-
-  .diary-page {
-    padding:30px 24px;
-  }
-
-  .diary-page h2 {
-    font-size:23px;
-  }
-
-  .diary-page p {
-    font-size:12px;
-    line-height:1.8;
-  }
-
-  .photo-placeholder {
-    height:145px;
-  }
-
-  .cover h2 {
-    font-size:30px;
-  }
-
-  .page-bottom {
-    left:24px;
-    right:24px;
-  }
-
-  .controls {
-    gap:8px;
-  }
-
-  .controls button {
-    padding:10px 12px;
-    font-size:11px;
-  }
-
-  .community-page {
-    padding:22px 19px 40px;
-  }
-
-  .community-page h2 {
-    font-size:21px;
-  }
-
-  .community-page > p {
-    font-size:10px;
-  }
-
-  .memory-gallery,
-  .feeling-list {
-    max-height:115px;
-  }
+@media(prefers-reduced-motion:reduce) {
+ * {scroll-behavior:auto!important;transition:none!important}
 }
 </style>
 </head>
 
 <body>
-
 <main class="background">
 
 <header>
-  <div class="eyebrow">HÀNH TRÌNH KẾT NỐI GẠO THƠM ĐĂK LA</div>
-  <h1>Nhật Ký Hành Trình</h1>
-  <div class="subtitle">Lật mở từng trang – lưu giữ từng kỷ niệm</div>
-  <div class="header-decoration">❧ ✦ ❧</div>
+ <div class="eyebrow">HÀNH TRÌNH KẾT NỐI GẠO THƠM ĐĂK LA</div>
+ <h1>Nhật Ký Hành Trình</h1>
+ <div class="subtitle">Lật mở từng trang – lưu giữ từng kỷ niệm</div>
+ <div class="header-decoration">❧ ✦ ❧</div>
 </header>
 
 <section class="book-area">
 <div class="diary-book">
 
-<!-- BÌA TRƯỚC -->
-
 <div class="diary-page cover">
-  <div class="cover-kicker">SỔ LƯU GIỮ HÀNH TRÌNH</div>
-  <div class="cover-ornament">❧ ✦ ❧</div>
-  <div class="cover-seal">🌾<small>ĐĂK LA</small></div>
-  <h2>NHẬT KÝ<br>HÀNH TRÌNH</h2>
-  <div class="cover-line"></div>
-  <p>GẠO THƠM ĐĂK LA</p>
-  <div class="cover-note">Một hạt gạo<br>Một hành trình</div>
-  <div class="cover-ornament">❧ ✦ ❧</div>
+ <div class="cover-kicker">SỔ LƯU GIỮ HÀNH TRÌNH</div>
+ <div class="cover-ornament">❧ ✦ ❧</div>
+ <div class="cover-seal">🌾<small>ĐĂK LA</small></div>
+ <h2>NHẬT KÝ<br>HÀNH TRÌNH</h2>
+ <div class="cover-line"></div>
+ <p>GẠO THƠM ĐĂK LA</p>
+ <div class="cover-note">Một hạt gạo<br>Một hành trình</div>
+ <div class="cover-ornament">❧ ✦ ❧</div>
 </div>
-
-<!-- TRANG 1 -->
 
 <div class="diary-page">
-  <div class="page-top"><span>CHƯƠNG 01</span><span>Khởi đầu</span></div>
-  <div class="section-label">NHỮNG ĐIỀU BẮT ĐẦU</div>
-  <h2>Mọi hành trình đều bắt đầu từ một câu chuyện...</h2>
-  <p class="dropcap">Có những điều tưởng chừng rất quen thuộc nhưng chúng mình lại chưa thật sự hiểu hết về nó.</p>
-  <p>Hạt gạo xuất hiện trong mỗi bữa cơm hằng ngày. Nhưng phía sau những hạt gạo trắng ngần ấy là cả một hành trình lao động, vun trồng và gìn giữ.</p>
-  <div class="quote">“Đôi khi, những điều bình dị nhất lại chứa đựng những câu chuyện đáng nhớ nhất.”</div>
-  <p>Và chúng mình đã bắt đầu hành trình tìm hiểu câu chuyện của hạt gạo Đăk La từ chính sự tò mò ấy.</p>
-  <div class="page-bottom"><span>NHẬT KÝ ĐĂK LA</span><span>01</span></div>
+ <div class="page-top"><span>CHƯƠNG 01</span><span>Khởi đầu</span></div>
+ <div class="section-label">NHỮNG ĐIỀU BẮT ĐẦU</div>
+ <h2>Mọi hành trình đều bắt đầu từ một câu chuyện...</h2>
+ <p class="dropcap">Có những điều tưởng chừng rất quen thuộc nhưng chúng mình lại chưa thật sự hiểu hết về nó.</p>
+ <p>Hạt gạo xuất hiện trong mỗi bữa cơm hằng ngày. Nhưng phía sau những hạt gạo trắng ngần ấy là cả một hành trình lao động, vun trồng và gìn giữ.</p>
+ <div class="quote">“Đôi khi, những điều bình dị nhất lại chứa đựng những câu chuyện đáng nhớ nhất.”</div>
+ <p>Và chúng mình đã bắt đầu hành trình tìm hiểu câu chuyện của hạt gạo Đăk La từ chính sự tò mò ấy.</p>
+ <div class="page-bottom"><span>NHẬT KÝ ĐĂK LA</span><span>01</span></div>
 </div>
-
-<!-- TRANG 2 -->
 
 <div class="diary-page">
-  <div class="page-top"><span>CHƯƠNG 02</span><span>Tìm hiểu</span></div>
-  <div class="section-label">TỪ NHỮNG ĐIỀU QUEN THUỘC</div>
-  <h2>Hiểu hơn về hạt gạo quê hương</h2>
-  <p class="dropcap">Chúng mình bắt đầu tìm hiểu về Gạo Thơm Đăk La, từ nguồn gốc, đặc điểm đến quá trình canh tác và những giá trị mà hạt gạo mang lại.</p>
-  <div class="photo-placeholder">🌾<br>Đặt ảnh tìm hiểu về Gạo Thơm Đăk La tại đây</div>
-  <div class="photo-caption">Một góc nhìn về hạt gạo quê hương</div>
-  <p>Mỗi thông tin mới giúp chúng mình hiểu thêm về sản phẩm nông nghiệp địa phương và thêm trân trọng những giá trị gần gũi quanh mình.</p>
-  <div class="stamp">TÌM HIỂU • KHÁM PHÁ</div>
-  <div class="page-bottom"><span>HÀNH TRÌNH KẾT NỐI</span><span>02</span></div>
+ <div class="page-top"><span>CHƯƠNG 02</span><span>Tìm hiểu</span></div>
+ <div class="section-label">TỪ NHỮNG ĐIỀU QUEN THUỘC</div>
+ <h2>Hiểu hơn về hạt gạo quê hương</h2>
+ <p class="dropcap">Chúng mình bắt đầu tìm hiểu về Gạo Thơm Đăk La, từ nguồn gốc, đặc điểm đến quá trình canh tác và những giá trị mà hạt gạo mang lại.</p>
+ <div class="photo-placeholder">🌾<br>Đặt ảnh tìm hiểu về Gạo Thơm Đăk La tại đây</div>
+ <div class="photo-caption">Một góc nhìn về hạt gạo quê hương</div>
+ <p>Mỗi thông tin mới giúp chúng mình hiểu thêm về sản phẩm nông nghiệp địa phương và thêm trân trọng những giá trị gần gũi quanh mình.</p>
+ <div class="stamp">TÌM HIỂU • KHÁM PHÁ</div>
+ <div class="page-bottom"><span>HÀNH TRÌNH KẾT NỐI</span><span>02</span></div>
 </div>
-
-<!-- TRANG 3 -->
 
 <div class="diary-page">
-  <div class="page-top"><span>CHƯƠNG 03</span><span>Trải nghiệm</span></div>
-  <div class="section-label">ĐẾN GẦN HƠN VỚI CÁNH ĐỒNG</div>
-  <h2>Một ngày trên cánh đồng lúa</h2>
-  <p class="dropcap">Không chỉ tìm hiểu qua sách vở, chúng mình còn có cơ hội đến tận cánh đồng để quan sát và trải nghiệm thực tế.</p>
-  <div class="photo-placeholder">🌱<br>Đặt ảnh trải nghiệm tại cánh đồng ở đây</div>
-  <div class="photo-caption">Những khoảnh khắc trải nghiệm thực tế</div>
-  <p>Được tận mắt nhìn thấy những thửa ruộng và lắng nghe câu chuyện của người làm nông giúp chúng mình hiểu hơn về công sức phía sau mỗi hạt gạo.</p>
-  <div class="quote">“Muốn hiểu giá trị của hạt gạo, hãy một lần nhìn lại hành trình làm ra nó.”</div>
-  <div class="page-bottom"><span>NHỮNG KỶ NIỆM ĐẸP</span><span>03</span></div>
+ <div class="page-top"><span>CHƯƠNG 03</span><span>Trải nghiệm</span></div>
+ <div class="section-label">ĐẾN GẦN HƠN VỚI CÁNH ĐỒNG</div>
+ <h2>Một ngày trên cánh đồng lúa</h2>
+ <p class="dropcap">Không chỉ tìm hiểu qua sách vở, chúng mình còn có cơ hội đến tận cánh đồng để quan sát và trải nghiệm thực tế.</p>
+ <div class="photo-placeholder">🌱<br>Đặt ảnh trải nghiệm tại cánh đồng ở đây</div>
+ <div class="photo-caption">Những khoảnh khắc trải nghiệm thực tế</div>
+ <p>Được tận mắt nhìn thấy những thửa ruộng và lắng nghe câu chuyện của người làm nông giúp chúng mình hiểu hơn về công sức phía sau mỗi hạt gạo.</p>
+ <div class="quote">“Muốn hiểu giá trị của hạt gạo, hãy một lần nhìn lại hành trình làm ra nó.”</div>
+ <div class="page-bottom"><span>NHỮNG KỶ NIỆM ĐẸP</span><span>03</span></div>
 </div>
-
-<!-- TRANG 4 -->
 
 <div class="diary-page">
-  <div class="page-top"><span>CHƯƠNG 04</span><span>Khám phá</span></div>
-  <div class="section-label">TỪ CÁNH ĐỒNG ĐẾN NHÀ MÁY</div>
-  <h2>Hành trình phía sau hạt gạo</h2>
-  <p class="dropcap">Sau khi tìm hiểu tại cánh đồng, chúng mình tiếp tục khám phá quá trình chế biến và xay xát để hiểu rõ hơn con đường từ hạt lúa đến hạt gạo thành phẩm.</p>
-  <div class="photo-placeholder">🏡<br>Đặt ảnh tham quan nhà máy tại đây</div>
-  <div class="photo-caption">Tìm hiểu quy trình chế biến gạo</div>
-  <p>Mỗi công đoạn đều có vai trò riêng. Qua đó, chúng mình nhận ra rằng để có được một bữa cơm ngon là cả một quá trình cần sự chăm chút và lao động.</p>
-  <div class="stamp">HỌC TỪ THỰC TẾ</div>
-  <div class="page-bottom"><span>MỘT HÀNH TRÌNH Ý NGHĨA</span><span>04</span></div>
+ <div class="page-top"><span>CHƯƠNG 04</span><span>Khám phá</span></div>
+ <div class="section-label">TỪ CÁNH ĐỒNG ĐẾN NHÀ MÁY</div>
+ <h2>Hành trình phía sau hạt gạo</h2>
+ <p class="dropcap">Sau khi tìm hiểu tại cánh đồng, chúng mình tiếp tục khám phá quá trình chế biến và xay xát để hiểu rõ hơn con đường từ hạt lúa đến hạt gạo thành phẩm.</p>
+ <div class="photo-placeholder">🏡<br>Đặt ảnh tham quan nhà máy tại đây</div>
+ <div class="photo-caption">Tìm hiểu quy trình chế biến gạo</div>
+ <p>Mỗi công đoạn đều có vai trò riêng. Qua đó, chúng mình nhận ra rằng để có được một bữa cơm ngon là cả một quá trình cần sự chăm chút và lao động.</p>
+ <div class="stamp">HỌC TỪ THỰC TẾ</div>
+ <div class="page-bottom"><span>MỘT HÀNH TRÌNH Ý NGHĨA</span><span>04</span></div>
 </div>
-
-<!-- TRANG 5 -->
 
 <div class="diary-page">
-  <div class="page-top"><span>CHƯƠNG 05</span><span>Văn hóa</span></div>
-  <div class="section-label">GÌN GIỮ GIÁ TRỊ TRUYỀN THỐNG</div>
-  <h2>Khi hạt lúa gắn với văn hóa</h2>
-  <p class="dropcap">Qua việc tìm hiểu lễ mừng lúa mới của người Xơ Đăng, chúng mình hiểu thêm về lòng biết ơn đối với thiên nhiên, đất trời và những người làm ra hạt lúa.</p>
-  <div class="photo-placeholder">🌾<br>Đặt ảnh tìm hiểu lễ mừng lúa mới tại đây</div>
-  <div class="photo-caption">Nét đẹp văn hóa gắn với mùa lúa mới</div>
-  <div class="quote">“Uống nước nhớ nguồn – Trân trọng những giá trị được trao truyền.”</div>
-  <p>Đó cũng là lý do chúng mình muốn tìm hiểu và góp phần gìn giữ những nét đẹp văn hóa quê hương.</p>
-  <div class="page-bottom"><span>GÌN GIỮ VÀ TRÂN TRỌNG</span><span>05</span></div>
+ <div class="page-top"><span>CHƯƠNG 05</span><span>Văn hóa</span></div>
+ <div class="section-label">GÌN GIỮ GIÁ TRỊ TRUYỀN THỐNG</div>
+ <h2>Khi hạt lúa gắn với văn hóa</h2>
+ <p class="dropcap">Qua việc tìm hiểu lễ mừng lúa mới của người Xơ Đăng, chúng mình hiểu thêm về lòng biết ơn đối với thiên nhiên, đất trời và những người làm ra hạt lúa.</p>
+ <div class="photo-placeholder">🌾<br>Đặt ảnh tìm hiểu lễ mừng lúa mới tại đây</div>
+ <div class="photo-caption">Nét đẹp văn hóa gắn với mùa lúa mới</div>
+ <div class="quote">“Uống nước nhớ nguồn – Trân trọng những giá trị được trao truyền.”</div>
+ <p>Đó cũng là lý do chúng mình muốn tìm hiểu và góp phần gìn giữ những nét đẹp văn hóa quê hương.</p>
+ <div class="page-bottom"><span>GÌN GIỮ VÀ TRÂN TRỌNG</span><span>05</span></div>
 </div>
-
-<!-- TRANG 6 -->
 
 <div class="diary-page">
-  <div class="page-top"><span>CHƯƠNG 06</span><span>Sáng tạo</span></div>
-  <div class="section-label">KHI HẠT GẠO KỂ CHUYỆN</div>
-  <h2>Những ý tưởng từ hạt gạo</h2>
-  <p class="dropcap">Những hạt gạo quen thuộc còn có thể trở thành chất liệu sáng tạo nên các tác phẩm nghệ thuật độc đáo.</p>
-  <div class="photo-placeholder">🎨<br>Đặt ảnh tranh gạo và sản phẩm sáng tạo tại đây</div>
-  <div class="photo-caption">Tác phẩm nghệ thuật từ hạt gạo</div>
-  <p>Qua những hoạt động sáng tạo, chúng mình mong muốn mỗi bạn học sinh có thể tìm thấy một cách riêng để thể hiện tình cảm và sự trân trọng đối với quê hương.</p>
-  <div class="stamp">SÁNG TẠO • CHIA SẺ</div>
-  <div class="page-bottom"><span>GÓC SÁNG TẠO</span><span>06</span></div>
+ <div class="page-top"><span>CHƯƠNG 06</span><span>Sáng tạo</span></div>
+ <div class="section-label">KHI HẠT GẠO KỂ CHUYỆN</div>
+ <h2>Những ý tưởng từ hạt gạo</h2>
+ <p class="dropcap">Những hạt gạo quen thuộc còn có thể trở thành chất liệu sáng tạo nên các tác phẩm nghệ thuật độc đáo.</p>
+ <div class="photo-placeholder">🎨<br>Đặt ảnh tranh gạo và sản phẩm sáng tạo tại đây</div>
+ <div class="photo-caption">Tác phẩm nghệ thuật từ hạt gạo</div>
+ <p>Qua những hoạt động sáng tạo, chúng mình mong muốn mỗi bạn học sinh có thể tìm thấy một cách riêng để thể hiện tình cảm và sự trân trọng đối với quê hương.</p>
+ <div class="stamp">SÁNG TẠO • CHIA SẺ</div>
+ <div class="page-bottom"><span>GÓC SÁNG TẠO</span><span>06</span></div>
 </div>
-
-<!-- TRANG 7 -->
 
 <div class="diary-page">
-  <div class="page-top"><span>CHƯƠNG 07</span><span>Nhìn lại</span></div>
-  <div class="section-label">NHỮNG ĐIỀU CÒN ĐỌNG LẠI</div>
-  <h2>Điều chúng mình nhận được</h2>
-  <p class="dropcap">Sau hành trình, điều chúng mình nhận được không chỉ là những kiến thức mới mà còn là những trải nghiệm và kỷ niệm đáng nhớ.</p>
-  <div class="photo-placeholder">📷<br>Đặt ảnh kỷ niệm của nhóm tại đây</div>
-  <div class="photo-caption">Một hành trình – Nhiều kỷ niệm</div>
-  <p>Chúng mình hiểu hơn về công sức của người nông dân, thêm quan tâm đến sản phẩm địa phương và nhận ra rằng những giá trị quê hương luôn đáng được gìn giữ.</p>
-  <div class="quote">“Điều đẹp nhất sau mỗi hành trình là những điều ta hiểu và trân trọng hơn.”</div>
-  <div class="page-bottom"><span>NHỮNG ĐIỀU ĐỌNG LẠI</span><span>07</span></div>
+ <div class="page-top"><span>CHƯƠNG 07</span><span>Nhìn lại</span></div>
+ <div class="section-label">NHỮNG ĐIỀU CÒN ĐỌNG LẠI</div>
+ <h2>Điều chúng mình nhận được</h2>
+ <p class="dropcap">Sau hành trình, điều chúng mình nhận được không chỉ là những kiến thức mới mà còn là những trải nghiệm và kỷ niệm đáng nhớ.</p>
+ <div class="photo-placeholder">📷<br>Đặt ảnh kỷ niệm của nhóm tại đây</div>
+ <div class="photo-caption">Một hành trình – Nhiều kỷ niệm</div>
+ <p>Chúng mình hiểu hơn về công sức của người nông dân, thêm quan tâm đến sản phẩm địa phương và nhận ra rằng những giá trị quê hương luôn đáng được gìn giữ.</p>
+ <div class="quote">“Điều đẹp nhất sau mỗi hành trình là những điều ta hiểu và trân trọng hơn.”</div>
+ <div class="page-bottom"><span>NHỮNG ĐIỀU ĐỌNG LẠI</span><span>07</span></div>
 </div>
-
-<!-- TRANG 8 -->
 
 <div class="diary-page">
-  <div class="page-top"><span>CHƯƠNG 08</span><span>Lan tỏa</span></div>
-  <div class="section-label">CÂU CHUYỆN ĐƯỢC TIẾP NỐI</div>
-  <h2>Hành trình vẫn còn tiếp tục</h2>
-  <p class="dropcap">Chúng mình hy vọng những câu chuyện nhỏ này sẽ giúp nhiều bạn học sinh hiểu hơn, quan tâm hơn và cùng nhau gìn giữ những giá trị nông nghiệp, văn hóa của quê hương.</p>
-  <div class="quote">“Một hạt gạo – Một câu chuyện – Một giá trị cần được gìn giữ.”</div>
-  <p>Cảm ơn bạn đã dành thời gian lật mở từng trang nhật ký và đồng hành cùng chúng mình trong hành trình kết nối Gạo Thơm Đăk La.</p>
-  <div class="stamp">CẢM ƠN BẠN!</div>
-  <div class="page-bottom"><span>HẸN GẶP LẠI</span><span>08</span></div>
+ <div class="page-top"><span>CHƯƠNG 08</span><span>Lan tỏa</span></div>
+ <div class="section-label">CÂU CHUYỆN ĐƯỢC TIẾP NỐI</div>
+ <h2>Hành trình vẫn còn tiếp tục</h2>
+ <p class="dropcap">Chúng mình hy vọng những câu chuyện nhỏ này sẽ giúp nhiều bạn học sinh hiểu hơn, quan tâm hơn và cùng nhau gìn giữ những giá trị nông nghiệp, văn hóa của quê hương.</p>
+ <div class="quote">“Một hạt gạo – Một câu chuyện – Một giá trị cần được gìn giữ.”</div>
+ <p>Cảm ơn bạn đã dành thời gian lật mở từng trang nhật ký và đồng hành cùng chúng mình trong hành trình kết nối Gạo Thơm Đăk La.</p>
+ <div class="stamp">CẢM ƠN BẠN!</div>
+ <div class="page-bottom"><span>HẸN GẶP LẠI</span><span>08</span></div>
 </div>
-
-<!-- TRANG 9: KHOẢNH KHẮC -->
 
 <div class="diary-page community-page">
+ <div class="page-top"><span>CHƯƠNG 09</span><span>Kỷ niệm</span></div>
+ <div class="section-label">GÓC LƯU GIỮ KỶ NIỆM</div>
+ <h2>Khoảnh khắc của chúng mình</h2>
+ <p>Mỗi bức ảnh là một câu chuyện. Hãy cùng lưu giữ những khoảnh khắc đáng nhớ trong hành trình nhé!</p>
 
-  <div class="page-top">
-    <span>CHƯƠNG 09</span>
-    <span>Kỷ niệm</span>
-  </div>
+ <form id="memory-form" class="community-form">
+  <label for="memory-name">Tên hoặc biệt danh của bạn</label>
+  <input id="memory-name" type="text" maxlength="50" placeholder="Nhập tên của bạn..." required>
 
-  <div class="section-label">GÓC LƯU GIỮ KỶ NIỆM</div>
+  <label for="memory-image">Chọn một bức ảnh kỷ niệm</label>
+  <input id="memory-image" type="file" accept="image/jpeg,image/png,image/webp" required>
 
-  <h2>Khoảnh khắc của chúng mình</h2>
+  <label for="memory-caption">Chú thích cho bức ảnh</label>
+  <textarea id="memory-caption" maxlength="300" placeholder="Khoảnh khắc này có gì đặc biệt?"></textarea>
 
-  <p>
-    Mỗi bức ảnh là một câu chuyện. Hãy cùng lưu giữ
-    những khoảnh khắc đáng nhớ trong hành trình nhé!
-  </p>
+  <button type="submit" id="memory-submit">🌾 Gửi kỷ niệm</button>
+  <div id="memory-message" class="community-message" aria-live="polite"></div>
+ </form>
 
-  <form id="memory-form" class="community-form">
+ <div class="community-divider">✦ KỶ NIỆM ĐƯỢC CHIA SẺ ✦</div>
+ <div id="memory-gallery" class="memory-gallery">
+  <p>Đang tải những kỷ niệm...</p>
+ </div>
 
-    <label>Tên hoặc biệt danh của bạn</label>
-    <input id="memory-name" type="text"
-      maxlength="50" placeholder="Nhập tên của bạn..." required>
-
-    <label>Chọn một bức ảnh kỷ niệm</label>
-    <input id="memory-image" type="file"
-      accept="image/jpeg,image/png,image/webp" required>
-
-    <label>Chú thích cho bức ảnh</label>
-    <textarea id="memory-caption" maxlength="300"
-      placeholder="Khoảnh khắc này có gì đặc biệt?"></textarea>
-
-    <button type="submit" id="memory-submit">
-      🌾 Gửi kỷ niệm
-    </button>
-
-    <div id="memory-message" class="community-message" aria-live="polite"></div>
-  </form>
-
-  <div class="community-divider">✦ KỶ NIỆM ĐƯỢC CHIA SẺ ✦</div>
-
-  <div id="memory-gallery" class="memory-gallery">
-    <p>Đang tải những kỷ niệm...</p>
-  </div>
-
-  <div class="page-bottom">
-    <span>GÓC LƯU GIỮ KỶ NIỆM</span>
-    <span>09</span>
-  </div>
+ <div class="page-bottom"><span>GÓC LƯU GIỮ KỶ NIỆM</span><span>09</span></div>
 </div>
-
-<!-- TRANG 10: CẢM XÚC -->
 
 <div class="diary-page community-page">
+ <div class="page-top"><span>CHƯƠNG 10</span><span>Cảm xúc</span></div>
+ <div class="section-label">GỬI LẠI MỘT CHÚT CẢM XÚC</div>
+ <h2>Những dòng cảm xúc</h2>
+ <p>Sau khi đồng hành cùng hành trình, bạn muốn chia sẻ điều gì? Hãy viết lại cảm nhận của mình tại đây.</p>
 
-  <div class="page-top">
-    <span>CHƯƠNG 10</span>
-    <span>Cảm xúc</span>
-  </div>
+ <form id="feeling-form" class="community-form">
+  <label for="feeling-name">Tên hoặc biệt danh của bạn</label>
+  <input id="feeling-name" type="text" maxlength="50" placeholder="Nhập tên của bạn..." required>
 
-  <div class="section-label">GỬI LẠI MỘT CHÚT CẢM XÚC</div>
+  <label for="feeling-content">Điều bạn muốn gửi gắm</label>
+  <textarea id="feeling-content" maxlength="2000" rows="4" placeholder="Hãy viết những cảm xúc chân thật của bạn..." required></textarea>
 
-  <h2>Những dòng cảm xúc</h2>
+  <button type="submit" id="feeling-submit">✒ Gửi dòng cảm xúc</button>
+  <div id="feeling-message" class="community-message" aria-live="polite"></div>
+ </form>
 
-  <p>
-    Sau khi đồng hành cùng hành trình, bạn muốn chia sẻ
-    điều gì? Hãy viết lại cảm nhận của mình tại đây.
-  </p>
+ <div class="community-divider">✦ LỜI NHẮN TỪ BẠN BÈ ✦</div>
+ <div id="feeling-list" class="feeling-list">
+  <p>Đang tải những dòng cảm xúc...</p>
+ </div>
 
-  <form id="feeling-form" class="community-form">
-
-    <label>Tên hoặc biệt danh của bạn</label>
-    <input id="feeling-name" type="text"
-      maxlength="50" placeholder="Nhập tên của bạn..." required>
-
-    <label>Điều bạn muốn gửi gắm</label>
-    <textarea id="feeling-content" maxlength="2000"
-      rows="4"
-      placeholder="Hãy viết những cảm xúc chân thật của bạn..."
-      required></textarea>
-
-    <button type="submit" id="feeling-submit">
-      ✒ Gửi dòng cảm xúc
-    </button>
-
-    <div id="feeling-message" class="community-message" aria-live="polite"></div>
-  </form>
-
-  <div class="community-divider">✦ LỜI NHẮN TỪ BẠN BÈ ✦</div>
-
-  <div id="feeling-list" class="feeling-list">
-    <p>Đang tải những dòng cảm xúc...</p>
-  </div>
-
-  <div class="page-bottom">
-    <span>NHỮNG DÒNG CẢM XÚC</span>
-    <span>10</span>
-  </div>
+ <div class="page-bottom"><span>NHỮNG DÒNG CẢM XÚC</span><span>10</span></div>
 </div>
 
-<!-- BÌA SAU -->
-
 <div class="diary-page cover">
-  <div class="cover-kicker">HÀNH TRÌNH KẾT NỐI</div>
-  <div class="cover-ornament">❧ ✦ ❧</div>
-  <div class="cover-seal">🌾<small>ĐĂK LA</small></div>
-  <h2>CẢM ƠN<br>BẠN ĐÃ ĐỌC</h2>
-  <div class="cover-line"></div>
-  <p>GẠO THƠM ĐĂK LA</p>
-  <div class="cover-note">Những giá trị quê hương<br>sẽ còn được tiếp nối.</div>
-  <div class="cover-ornament">❧ ✦ ❧</div>
+ <div class="cover-kicker">HÀNH TRÌNH KẾT NỐI</div>
+ <div class="cover-ornament">❧ ✦ ❧</div>
+ <div class="cover-seal">🌾<small>ĐĂK LA</small></div>
+ <h2>CẢM ƠN<br>BẠN ĐÃ ĐỌC</h2>
+ <div class="cover-line"></div>
+ <p>GẠO THƠM ĐĂK LA</p>
+ <div class="cover-note">Những giá trị quê hương<br>sẽ còn được tiếp nối.</div>
+ <div class="cover-ornament">❧ ✦ ❧</div>
 </div>
 
 </div>
 </section>
 
-<!-- NÚT ĐIỀU KHIỂN -->
-
 <div class="controls">
-  <button id="diary-prev">← Trang trước</button>
-  <span id="diary-status">Trang 1</span>
-  <button id="diary-next">Trang sau →</button>
+ <button id="diary-prev" type="button">← Trang trước</button>
+ <span id="diary-status">Trang 1</span>
+ <button id="diary-next" type="button">Trang sau →</button>
 </div>
 
 <footer>
-  <div class="footer-ornament">❧ ✦ ❧</div>
-  Một hạt gạo – Một hành trình
+ <div class="footer-ornament">❧ ✦ ❧</div>
+ Một hạt gạo – Một hành trình
 </footer>
 
 </main>
-
-<!-- SUPABASE -->
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
 const SUPABASE_URL = "https://dmxlbxhfgfliwpzjleat.supabase.co";
 const SUPABASE_KEY = "sb_publishable_2Paz7KJcObe8Epbwc_5zQw_dWzZtBVr";
-
-const db = window.supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_KEY
-);
-
+const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 const BUCKET = "student-memories";
 
-// HIỂN THỊ ẢNH
-
 async function loadMemories() {
-  const gallery = document.getElementById("memory-gallery");
+ const gallery = document.getElementById("memory-gallery");
 
-  const { data, error } = await db
-    .from("memories")
-    .select("*")
-    .order("created_at", { ascending:false })
-    .limit(30);
+ const {data,error} = await db
+  .from("memories")
+  .select("*")
+  .order("created_at",{ascending:false})
+  .limit(30);
 
-  if (error) {
-    gallery.textContent = "Chưa thể tải kỷ niệm.";
-    console.error(error);
-    return;
-  }
+ if(error) {
+  gallery.textContent = "Chưa thể tải kỷ niệm.";
+  console.error(error);
+  return;
+ }
 
-  gallery.replaceChildren();
+ gallery.replaceChildren();
 
-  if (!data.length) {
-    gallery.textContent = "Chưa có kỷ niệm nào. Hãy là người đầu tiên!";
-    return;
-  }
+ if(!data.length) {
+  gallery.textContent = "Chưa có kỷ niệm nào. Hãy là người đầu tiên!";
+  return;
+ }
 
-  data.forEach(item => {
-    const card = document.createElement("div");
-    card.className = "memory-card";
+ data.forEach(item => {
+  const card = document.createElement("div");
+  card.className = "memory-card";
 
-    const img = document.createElement("img");
-    img.src = item.image_url;
-    img.alt = "Ảnh kỷ niệm được chia sẻ";
-    img.loading = "lazy";
+  const img = document.createElement("img");
+  img.src = item.image_url;
+  img.alt = "Ảnh kỷ niệm được chia sẻ";
+  img.loading = "lazy";
 
-    const name = document.createElement("strong");
-    name.textContent = item.student_name;
+  const name = document.createElement("strong");
+  name.textContent = item.student_name;
 
-    const caption = document.createElement("small");
-    caption.textContent = item.caption || "Một khoảnh khắc đáng nhớ";
+  const caption = document.createElement("small");
+  caption.textContent = item.caption || "Một khoảnh khắc đáng nhớ";
 
-    card.append(img, name, caption);
-    gallery.appendChild(card);
-  });
+  card.append(img,name,caption);
+  gallery.appendChild(card);
+ });
 }
 
+document.getElementById("memory-form").addEventListener("submit",async event => {
+ event.preventDefault();
 
-// GỬI ẢNH
+ const button = document.getElementById("memory-submit");
+ const message = document.getElementById("memory-message");
 
-document.getElementById("memory-form")
-.addEventListener("submit", async event => {
+ const name = document.getElementById("memory-name").value.trim();
+ const file = document.getElementById("memory-image").files[0];
+ const caption = document.getElementById("memory-caption").value.trim();
 
-  event.preventDefault();
+ if(!name || !file) return;
 
-  const button = document.getElementById("memory-submit");
-  const message = document.getElementById("memory-message");
+ if(!["image/jpeg","image/png","image/webp"].includes(file.type)) {
+  message.textContent = "Vui lòng chọn ảnh JPG, PNG hoặc WEBP.";
+  return;
+ }
 
-  const name = document.getElementById("memory-name").value.trim();
-  const file = document.getElementById("memory-image").files[0];
-  const caption = document.getElementById("memory-caption").value.trim();
+ if(file.size > 5*1024*1024) {
+  message.textContent = "Ảnh không được lớn hơn 5 MB.";
+  return;
+ }
 
-  if (!name || !file) return;
+ button.disabled = true;
+ button.textContent = "Đang gửi ảnh...";
 
-  if (!["image/jpeg","image/png","image/webp"].includes(file.type)) {
-    message.textContent = "Vui lòng chọn ảnh JPG, PNG hoặc WEBP.";
-    return;
-  }
+ try {
+  const extension =
+   file.type === "image/png" ? "png" :
+   file.type === "image/webp" ? "webp" : "jpg";
 
-  if (file.size > 5 * 1024 * 1024) {
-    message.textContent = "Ảnh không được lớn hơn 5 MB.";
-    return;
-  }
+  const filePath =
+   Date.now() + "-" + Math.random().toString(36).slice(2) + "." + extension;
 
-  button.disabled = true;
-  button.textContent = "Đang gửi ảnh...";
+  const {error:uploadError} = await db.storage
+   .from(BUCKET)
+   .upload(filePath,file,{
+    contentType:file.type,
+    upsert:false
+   });
 
-  try {
-    const extension =
-      file.type === "image/png" ? "png" :
-      file.type === "image/webp" ? "webp" : "jpg";
+  if(uploadError) throw uploadError;
 
-    const filePath =
-      Date.now() + "-" +
-      Math.random().toString(36).slice(2) +
-      "." + extension;
+  const {data:publicData} = db.storage
+   .from(BUCKET)
+   .getPublicUrl(filePath);
 
-    const { error: uploadError } = await db.storage
-      .from(BUCKET)
-      .upload(filePath, file, {
-        contentType:file.type,
-        upsert:false
-      });
+  const {error:insertError} = await db
+   .from("memories")
+   .insert({
+    student_name:name,
+    image_url:publicData.publicUrl,
+    caption
+   });
 
-    if (uploadError) throw uploadError;
+  if(insertError) throw insertError;
 
-    const { data: publicData } = db.storage
-      .from(BUCKET)
-      .getPublicUrl(filePath);
+  message.textContent = "Đã gửi kỷ niệm thành công! 🌾";
+  event.target.reset();
+  await loadMemories();
 
-    const { error: insertError } = await db
-      .from("memories")
-      .insert({
-        student_name:name,
-        image_url:publicData.publicUrl,
-        caption:caption
-      });
+ } catch(error) {
+  console.error(error);
+  message.textContent = "Chưa gửi được. Vui lòng thử lại.";
 
-    if (insertError) throw insertError;
-
-    message.textContent = "Đã gửi kỷ niệm thành công! 🌾";
-    event.target.reset();
-
-    await loadMemories();
-
-  } catch (error) {
-    console.error(error);
-    message.textContent = "Chưa gửi được. Vui lòng thử lại.";
-  } finally {
-    button.disabled = false;
-    button.textContent = "🌾 Gửi kỷ niệm";
-  }
+ } finally {
+  button.disabled = false;
+  button.textContent = "🌾 Gửi kỷ niệm";
+ }
 });
-
-
-// HIỂN THỊ CẢM XÚC
 
 async function loadFeelings() {
-  const list = document.getElementById("feeling-list");
+ const list = document.getElementById("feeling-list");
 
-  const { data, error } = await db
-    .from("feelings")
-    .select("*")
-    .order("created_at", { ascending:false })
-    .limit(30);
+ const {data,error} = await db
+  .from("feelings")
+  .select("*")
+  .order("created_at",{ascending:false})
+  .limit(30);
 
-  if (error) {
-    list.textContent = "Chưa thể tải cảm xúc.";
-    console.error(error);
-    return;
-  }
+ if(error) {
+  list.textContent = "Chưa thể tải cảm xúc.";
+  console.error(error);
+  return;
+ }
 
-  list.replaceChildren();
+ list.replaceChildren();
 
-  if (!data.length) {
-    list.textContent = "Hãy là người đầu tiên để lại cảm xúc nhé!";
-    return;
-  }
+ if(!data.length) {
+  list.textContent = "Hãy là người đầu tiên để lại cảm xúc nhé!";
+  return;
+ }
 
-  data.forEach(item => {
-    const card = document.createElement("div");
-    card.className = "feeling-card";
+ data.forEach(item => {
+  const card = document.createElement("div");
+  card.className = "feeling-card";
 
-    const name = document.createElement("strong");
-    name.textContent = item.student_name;
+  const name = document.createElement("strong");
+  name.textContent = item.student_name;
 
-    const content = document.createElement("p");
-    content.textContent = item.content;
+  const content = document.createElement("p");
+  content.textContent = item.content;
 
-    const date = document.createElement("small");
-    date.textContent = new Date(item.created_at)
-      .toLocaleDateString("vi-VN");
+  const date = document.createElement("small");
+  date.textContent = new Date(item.created_at).toLocaleDateString("vi-VN");
 
-    card.append(name, content, date);
-    list.appendChild(card);
-  });
+  card.append(name,content,date);
+  list.appendChild(card);
+ });
 }
 
+document.getElementById("feeling-form").addEventListener("submit",async event => {
+ event.preventDefault();
 
-// GỬI CẢM XÚC
+ const button = document.getElementById("feeling-submit");
+ const message = document.getElementById("feeling-message");
 
-document.getElementById("feeling-form")
-.addEventListener("submit", async event => {
+ const name = document.getElementById("feeling-name").value.trim();
+ const content = document.getElementById("feeling-content").value.trim();
 
-  event.preventDefault();
+ if(!name || !content) return;
 
-  const button = document.getElementById("feeling-submit");
-  const message = document.getElementById("feeling-message");
+ button.disabled = true;
+ button.textContent = "Đang gửi...";
 
-  const name = document.getElementById("feeling-name").value.trim();
-  const content = document.getElementById("feeling-content").value.trim();
+ try {
+  const {error} = await db
+   .from("feelings")
+   .insert({
+    student_name:name,
+    content
+   });
 
-  if (!name || !content) return;
+  if(error) throw error;
 
-  button.disabled = true;
-  button.textContent = "Đang gửi...";
+  message.textContent = "Cảm xúc của bạn đã được lưu! ✨";
+  event.target.reset();
+  await loadFeelings();
 
-  try {
-    const { error } = await db
-      .from("feelings")
-      .insert({
-        student_name:name,
-        content:content
-      });
+ } catch(error) {
+  console.error(error);
+  message.textContent = "Chưa gửi được. Vui lòng thử lại.";
 
-    if (error) throw error;
-
-    message.textContent = "Cảm xúc của bạn đã được lưu! ✨";
-    event.target.reset();
-
-    await loadFeelings();
-
-  } catch (error) {
-    console.error(error);
-    message.textContent = "Chưa gửi được. Vui lòng thử lại.";
-  } finally {
-    button.disabled = false;
-    button.textContent = "✒ Gửi dòng cảm xúc";
-  }
+ } finally {
+  button.disabled = false;
+  button.textContent = "✒ Gửi dòng cảm xúc";
+ }
 });
-
-
-// KHỞI ĐỘNG VÀ CẬP NHẬT NỘI DUNG
 
 loadMemories();
 loadFeelings();
 
-// Tự tải lại nội dung mới mỗi 20 giây
 setInterval(() => {
-  loadMemories();
-  loadFeelings();
-}, 20000);
-
+ loadMemories();
+ loadFeelings();
+},20000);
 </script>
-
-<!-- HIỆU ỨNG LẬT TRANG -->
 
 <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.min.js"></script>
 <script src="script.js"></script>

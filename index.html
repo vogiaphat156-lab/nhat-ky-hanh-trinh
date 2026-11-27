@@ -15,10 +15,12 @@
  --gold:#c9a66b;
  --cream:#fffaf0;
  --brown:#493522;
- --page-height:820px;
+ --page-height:650px;
 }
 
-* {box-sizing:border-box}
+* {
+ box-sizing:border-box;
+}
 
 body {
  margin:0;
@@ -32,7 +34,7 @@ body {
 
 .background {
  min-height:100vh;
- padding:42px 15px 55px;
+ padding:35px 15px 45px;
  position:relative;
  overflow:hidden;
 }
@@ -67,7 +69,7 @@ header,.book-area,.controls,footer {
 
 header {
  text-align:center;
- margin:0 auto 30px;
+ margin:0 auto 22px;
 }
 
 .eyebrow {
@@ -79,31 +81,33 @@ header {
 
 h1 {
  font-family:'Playfair Display',serif;
- font-size:clamp(30px,5vw,48px);
+ font-size:clamp(28px,5vw,43px);
  font-weight:600;
  color:#493522;
- margin:13px 0 8px;
+ margin:10px 0 6px;
 }
 
 .subtitle {
  color:#715a3d;
  font-family:'Cormorant Garamond',serif;
- font-size:22px;
+ font-size:21px;
  font-style:italic;
 }
 
 .header-decoration {
  color:#a17c4c;
- font-size:22px;
- margin-top:13px;
+ font-size:21px;
+ margin-top:10px;
  letter-spacing:9px;
 }
+
+/* KÍCH THƯỚC CUỐN SÁCH */
 
 .book-area {
  display:flex;
  justify-content:center;
  align-items:center;
- padding:12px 0;
+ padding:10px 0;
 }
 
 .diary-book {
@@ -113,6 +117,8 @@ h1 {
  margin:auto;
 }
 
+/* TRANG GIẤY */
+
 .diary-page {
  position:relative;
  display:flex;
@@ -120,7 +126,8 @@ h1 {
  overflow-y:auto;
  overflow-x:hidden;
  height:100%;
- padding:38px 34px 30px;
+ min-height:0;
+ padding:25px 28px 20px;
  color:var(--brown);
  background:
  radial-gradient(ellipse at 0 0,rgba(191,155,105,.12),transparent 38%),
@@ -136,7 +143,7 @@ h1 {
 .diary-page:before {
  content:"";
  position:absolute;
- inset:9px;
+ inset:8px;
  border:1px solid rgba(160,123,75,.4);
  pointer-events:none;
  z-index:0;
@@ -154,17 +161,18 @@ h1 {
  right:16px;
  bottom:5px;
  color:rgba(155,119,72,.25);
- font-size:30px;
+ font-size:27px;
  pointer-events:none;
 }
 
-/* BÌA CỔ ĐIỂN */
+/* BÌA */
+
 .cover {
  justify-content:center;
  align-items:center;
  text-align:center;
  overflow:hidden;
- padding:65px 28px;
+ padding:45px 25px;
  background:radial-gradient(ellipse at 50% 45%,#667b58 0%,#354d38 58%,#1d3327 100%);
  color:#fff4d9;
  border:12px double #d8b875;
@@ -191,14 +199,13 @@ h1 {
 .cover:before {top:20px}
 .cover:after {bottom:20px}
 
-/* BÌA ĐẦU VÀ BÌA CUỐI DÙNG ẢNH RIÊNG */
 .cover-image {
- padding:0 !important;
+ padding:0!important;
  margin:0;
- border:none !important;
- outline:none !important;
- background:#f4ead9 !important;
- overflow:hidden !important;
+ border:none!important;
+ outline:none!important;
+ background:#f4ead9!important;
+ overflow:hidden!important;
  display:flex;
  align-items:center;
  justify-content:center;
@@ -206,8 +213,8 @@ h1 {
 
 .cover-image:before,
 .cover-image:after {
- display:none !important;
- content:none !important;
+ display:none!important;
+ content:none!important;
 }
 
 .cover-image img {
@@ -220,6 +227,8 @@ h1 {
  margin:0;
  padding:0;
 }
+
+/* NỘI DUNG BÌA DỰ PHÒNG */
 
 .cover-kicker {
  font-size:11px;
@@ -259,7 +268,7 @@ h1 {
 
 .cover h2 {
  font-family:'Playfair Display',serif;
- font-size:clamp(30px,7vw,40px);
+ font-size:clamp(27px,6vw,38px);
  line-height:1.25;
  font-weight:700;
  color:#fff8e8;
@@ -292,14 +301,16 @@ h1 {
  text-shadow:0 2px 5px #172719;
 }
 
+/* ĐẦU TRANG */
+
 .page-top {
  display:flex;
  justify-content:space-between;
  align-items:center;
- gap:12px;
+ gap:10px;
  border-bottom:1px solid #d7c3a2;
- padding-bottom:10px;
- margin-bottom:20px;
+ padding-bottom:8px;
+ margin-bottom:13px;
  color:#76552f;
  font-size:10px;
  letter-spacing:1.5px;
@@ -308,7 +319,7 @@ h1 {
 
 .page-top span:last-child {
  font-family:'Cormorant Garamond',serif;
- font-size:17px;
+ font-size:16px;
  font-style:italic;
  letter-spacing:0;
 }
@@ -318,28 +329,28 @@ h1 {
  display:inline-block;
  color:#684a2c;
  background:#efe3ce;
- padding:7px 11px;
- font-size:10px;
- letter-spacing:1.3px;
- margin-bottom:13px;
+ padding:6px 10px;
+ font-size:9px;
+ letter-spacing:1.2px;
+ margin-bottom:10px;
  font-weight:700;
 }
 
 .diary-page h2 {
  font-family:'Playfair Display',serif;
  color:#493522;
- font-size:27px;
- line-height:1.32;
+ font-size:23px;
+ line-height:1.3;
  font-weight:600;
- margin:0 0 15px;
+ margin:0 0 10px;
  overflow-wrap:anywhere;
 }
 
 .diary-page p {
  color:#44382b;
- font-size:13px;
- line-height:1.85;
- margin:10px 0;
+ font-size:12px;
+ line-height:1.7;
+ margin:7px 0;
  text-align:left;
  overflow-wrap:anywhere;
 }
@@ -347,16 +358,18 @@ h1 {
 .dropcap:first-letter {
  float:left;
  font-family:'Playfair Display',serif;
- font-size:44px;
+ font-size:40px;
  line-height:.85;
- padding:5px 8px 0 0;
+ padding:5px 7px 0 0;
  color:#966c3c;
 }
 
+/* HÌNH ẢNH */
+
 .photo-placeholder {
- min-height:170px;
- margin:16px 0 12px;
- padding:15px;
+ min-height:125px;
+ margin:10px 0 8px;
+ padding:12px;
  border:1px solid #c9ae84;
  outline:1px solid #e2d2b7;
  outline-offset:-6px;
@@ -367,27 +380,29 @@ h1 {
  text-align:center;
  color:#715a3d;
  font-family:'Cormorant Garamond',serif;
- font-size:19px;
+ font-size:18px;
  font-style:italic;
 }
 
 .photo-caption {
  text-align:center;
  color:#715a3d;
- font-size:11px;
+ font-size:10px;
  font-style:italic;
- margin:0 0 12px;
+ margin:0 0 9px;
 }
+
+/* TRÍCH DẪN */
 
 .quote {
  font-family:'Cormorant Garamond',serif;
- font-size:21px;
- line-height:1.45;
+ font-size:19px;
+ line-height:1.35;
  font-style:italic;
  color:#76532f;
  text-align:center;
- margin:17px 4px;
- padding:13px 10px;
+ margin:12px 4px;
+ padding:10px;
  border-top:1px solid #d6c19f;
  border-bottom:1px solid #d6c19f;
 }
@@ -397,12 +412,14 @@ h1 {
  display:inline-block;
  border:1px solid #a47b50;
  color:#76502d;
- padding:6px 10px;
+ padding:5px 9px;
  transform:rotate(-3deg);
  font-family:'Cormorant Garamond',serif;
- font-size:14px;
- margin:8px 0 15px;
+ font-size:13px;
+ margin:7px 0 12px;
 }
+
+/* CUỐI TRANG */
 
 .page-bottom {
  position:relative;
@@ -411,44 +428,48 @@ h1 {
  bottom:auto;
  flex-shrink:0;
  margin-top:auto;
- padding-top:12px;
+ padding-top:10px;
  border-top:1px solid #dfceb0;
  display:flex;
  justify-content:space-between;
  gap:8px;
  color:#765a36;
- font-size:10px;
+ font-size:9px;
 }
 
+/* TRANG CỘNG ĐỒNG */
+
 .community-page {
- padding:28px 27px 25px;
+ padding:22px 25px 19px;
 }
 
 .community-page .page-top {
- margin-bottom:12px;
+ margin-bottom:9px;
 }
 
 .community-page h2 {
- font-size:24px;
- margin-bottom:8px;
+ font-size:22px;
+ margin-bottom:7px;
 }
 
 .community-page>p {
  font-size:11px;
- line-height:1.7;
- margin:7px 0 12px;
+ line-height:1.6;
+ margin:6px 0 9px;
 }
+
+/* BIỂU MẪU */
 
 .community-form {
  display:flex;
  flex-direction:column;
- gap:7px;
+ gap:6px;
  position:relative;
  z-index:2;
 }
 
 .community-form label {
- font-size:11px;
+ font-size:10px;
  font-weight:700;
  color:#65482b;
 }
@@ -459,17 +480,17 @@ h1 {
  min-width:0;
  border:1px solid #cbb58f;
  background:rgba(255,255,255,.8);
- padding:9px;
+ padding:8px;
  color:#493522;
  font-family:inherit;
- font-size:12px;
+ font-size:11px;
  border-radius:4px;
 }
 
 .community-form textarea {
  resize:vertical;
- min-height:62px;
- line-height:1.5;
+ min-height:52px;
+ line-height:1.45;
 }
 
 .community-form input:focus,
@@ -481,18 +502,25 @@ h1 {
 .community-form button {
  width:100%;
  margin-top:3px;
- padding:10px;
+ padding:9px;
  background:#435b40;
  border:1px solid #9c865b;
  color:#fff8e8;
  border-radius:3px;
+ font-size:11px;
 }
 
-.community-form button:hover {background:#2e452f}
-.community-form button:disabled {opacity:.6;cursor:wait}
+.community-form button:hover {
+ background:#2e452f;
+}
+
+.community-form button:disabled {
+ opacity:.6;
+ cursor:wait;
+}
 
 .community-message {
- font-size:11px;
+ font-size:10px;
  color:#385638;
  min-height:15px;
  line-height:1.5;
@@ -502,18 +530,20 @@ h1 {
 .community-divider {
  text-align:center;
  color:#76552f;
- font-size:10px;
+ font-size:9px;
  letter-spacing:1.5px;
- margin:12px 0 9px;
+ margin:10px 0 8px;
  border-top:1px solid #d9c7a8;
- padding-top:10px;
+ padding-top:9px;
 }
+
+/* THƯ VIỆN ẢNH */
 
 .memory-gallery {
  display:grid;
  grid-template-columns:repeat(2,minmax(0,1fr));
- gap:8px;
- max-height:190px;
+ gap:7px;
+ max-height:135px;
  overflow-y:auto;
  position:relative;
  z-index:2;
@@ -532,7 +562,7 @@ h1 {
 .memory-card img {
  display:block;
  width:100%;
- height:78px;
+ height:65px;
  object-fit:cover;
 }
 
@@ -540,14 +570,18 @@ h1 {
 .memory-card small {
  display:block;
  overflow-wrap:anywhere;
- font-size:10px;
+ font-size:9px;
  margin-top:5px;
 }
 
-.memory-card small {color:#765a3b}
+.memory-card small {
+ color:#765a3b;
+}
+
+/* CẢM XÚC */
 
 .feeling-list {
- max-height:210px;
+ max-height:150px;
  overflow-y:auto;
  position:relative;
  z-index:2;
@@ -559,18 +593,18 @@ h1 {
  background:rgba(239,227,206,.8);
  border-left:3px solid #a17c4c;
  padding:8px 10px;
- margin-bottom:8px;
+ margin-bottom:7px;
  overflow-wrap:anywhere;
 }
 
 .feeling-card strong {
  color:#684a2c;
- font-size:11px;
+ font-size:10px;
 }
 
 .feeling-card p {
- font-size:11px;
- line-height:1.6;
+ font-size:10px;
+ line-height:1.5;
  margin:5px 0;
  overflow-wrap:anywhere;
  white-space:pre-wrap;
@@ -578,22 +612,24 @@ h1 {
 
 .feeling-card small {
  color:#765a36;
- font-size:10px;
+ font-size:9px;
 }
+
+/* NÚT ĐIỀU KHIỂN */
 
 .controls {
  display:flex;
  justify-content:center;
  align-items:center;
  gap:16px;
- margin-top:25px;
+ margin-top:22px;
 }
 
 button {
  background:#715237;
  color:#fff5e5;
  border:1px solid #a98a60;
- padding:12px 19px;
+ padding:11px 17px;
  font-family:inherit;
  font-size:12px;
  cursor:pointer;
@@ -622,10 +658,10 @@ button:disabled {
 
 footer {
  text-align:center;
- margin-top:32px;
+ margin-top:25px;
  color:#715a3d;
  font-family:'Cormorant Garamond',serif;
- font-size:19px;
+ font-size:18px;
  font-style:italic;
 }
 
@@ -636,24 +672,71 @@ footer {
  color:#8b6b42;
 }
 
+/* ĐIỆN THOẠI */
+
 @media(max-width:600px) {
- .background {padding:25px 8px 35px}
- .diary-book {width:min(500px,100%);height:760px}
- .diary-page {padding:30px 23px 24px}
- .diary-page h2 {font-size:23px}
- .diary-page p {font-size:12px;line-height:1.75}
- .photo-placeholder {min-height:145px}
- .community-page {padding:23px 18px 22px}
- .community-page h2 {font-size:21px}
- .controls {gap:7px}
- .controls button {padding:10px 11px;font-size:11px}
- #diary-status {min-width:65px;font-size:11px}
- .memory-gallery {max-height:170px}
- .feeling-list {max-height:190px}
+ .background {
+  padding:25px 8px 35px;
+ }
+
+ .diary-book {
+  width:min(500px,100%);
+  height:650px;
+ }
+
+ .diary-page {
+  padding:23px 19px 19px;
+ }
+
+ .diary-page h2 {
+  font-size:21px;
+ }
+
+ .diary-page p {
+  font-size:11px;
+  line-height:1.65;
+ }
+
+ .photo-placeholder {
+  min-height:110px;
+ }
+
+ .community-page {
+  padding:19px 16px 17px;
+ }
+
+ .community-page h2 {
+  font-size:19px;
+ }
+
+ .controls {
+  gap:7px;
+ }
+
+ .controls button {
+  padding:10px 11px;
+  font-size:11px;
+ }
+
+ #diary-status {
+  min-width:65px;
+  font-size:11px;
+ }
+
+ .memory-gallery {
+  max-height:125px;
+ }
+
+ .feeling-list {
+  max-height:140px;
+ }
 }
 
 @media(prefers-reduced-motion:reduce) {
- * {scroll-behavior:auto!important;transition:none!important}
+ * {
+  scroll-behavior:auto!important;
+  transition:none!important;
+ }
 }
 </style>
 </head>
@@ -673,12 +756,11 @@ footer {
 
 <!-- BÌA ĐẦU -->
 <div class="diary-page cover cover-image">
- <img
-  src="images/bia-tram-6.jpg"
-  alt="Bìa đầu Trạm 6 – Nhật ký hành trình Gạo Thơm Đăk La"
- >
+ <img src="images/bia-tram-6.jpg"
+ alt="Bìa đầu Trạm 6 – Nhật ký hành trình Gạo Thơm Đăk La">
 </div>
 
+<!-- TRANG 01 -->
 <div class="diary-page">
  <div class="page-top"><span>CHƯƠNG 01</span><span>Khởi đầu</span></div>
  <div class="section-label">NHỮNG ĐIỀU BẮT ĐẦU</div>
@@ -690,6 +772,7 @@ footer {
  <div class="page-bottom"><span>NHẬT KÝ ĐĂK LA</span><span>01</span></div>
 </div>
 
+<!-- TRANG 02 -->
 <div class="diary-page">
  <div class="page-top"><span>CHƯƠNG 02</span><span>Tìm hiểu</span></div>
  <div class="section-label">TỪ NHỮNG ĐIỀU QUEN THUỘC</div>
@@ -702,6 +785,7 @@ footer {
  <div class="page-bottom"><span>HÀNH TRÌNH KẾT NỐI</span><span>02</span></div>
 </div>
 
+<!-- TRANG 03 -->
 <div class="diary-page">
  <div class="page-top"><span>CHƯƠNG 03</span><span>Trải nghiệm</span></div>
  <div class="section-label">ĐẾN GẦN HƠN VỚI CÁNH ĐỒNG</div>
@@ -714,6 +798,7 @@ footer {
  <div class="page-bottom"><span>NHỮNG KỶ NIỆM ĐẸP</span><span>03</span></div>
 </div>
 
+<!-- TRANG 04 -->
 <div class="diary-page">
  <div class="page-top"><span>CHƯƠNG 04</span><span>Khám phá</span></div>
  <div class="section-label">TỪ CÁNH ĐỒNG ĐẾN NHÀ MÁY</div>
@@ -726,6 +811,7 @@ footer {
  <div class="page-bottom"><span>MỘT HÀNH TRÌNH Ý NGHĨA</span><span>04</span></div>
 </div>
 
+<!-- TRANG 05 -->
 <div class="diary-page">
  <div class="page-top"><span>CHƯƠNG 05</span><span>Văn hóa</span></div>
  <div class="section-label">GÌN GIỮ GIÁ TRỊ TRUYỀN THỐNG</div>
@@ -738,6 +824,7 @@ footer {
  <div class="page-bottom"><span>GÌN GIỮ VÀ TRÂN TRỌNG</span><span>05</span></div>
 </div>
 
+<!-- TRANG 06 -->
 <div class="diary-page">
  <div class="page-top"><span>CHƯƠNG 06</span><span>Sáng tạo</span></div>
  <div class="section-label">KHI HẠT GẠO KỂ CHUYỆN</div>
@@ -750,6 +837,7 @@ footer {
  <div class="page-bottom"><span>GÓC SÁNG TẠO</span><span>06</span></div>
 </div>
 
+<!-- TRANG 07 -->
 <div class="diary-page">
  <div class="page-top"><span>CHƯƠNG 07</span><span>Nhìn lại</span></div>
  <div class="section-label">NHỮNG ĐIỀU CÒN ĐỌNG LẠI</div>
@@ -762,6 +850,7 @@ footer {
  <div class="page-bottom"><span>NHỮNG ĐIỀU ĐỌNG LẠI</span><span>07</span></div>
 </div>
 
+<!-- TRANG 08 -->
 <div class="diary-page">
  <div class="page-top"><span>CHƯƠNG 08</span><span>Lan tỏa</span></div>
  <div class="section-label">CÂU CHUYỆN ĐƯỢC TIẾP NỐI</div>
@@ -773,6 +862,7 @@ footer {
  <div class="page-bottom"><span>HẸN GẶP LẠI</span><span>08</span></div>
 </div>
 
+<!-- TRANG 09 -->
 <div class="diary-page community-page">
  <div class="page-top"><span>CHƯƠNG 09</span><span>Kỷ niệm</span></div>
  <div class="section-label">GÓC LƯU GIỮ KỶ NIỆM</div>
@@ -801,6 +891,7 @@ footer {
  <div class="page-bottom"><span>GÓC LƯU GIỮ KỶ NIỆM</span><span>09</span></div>
 </div>
 
+<!-- TRANG 10 -->
 <div class="diary-page community-page">
  <div class="page-top"><span>CHƯƠNG 10</span><span>Cảm xúc</span></div>
  <div class="section-label">GỬI LẠI MỘT CHÚT CẢM XÚC</div>
@@ -828,10 +919,8 @@ footer {
 
 <!-- BÌA CUỐI -->
 <div class="diary-page cover cover-image">
- <img
-  src="images/bia-cuoi-tram-6.jpg"
-  alt="Bìa cuối Trạm 6 – Nhật ký hành trình Gạo Thơm Đăk La"
- >
+ <img src="images/bia-cuoi-tram-6.jpg"
+ alt="Bìa cuối Trạm 6 – Nhật ký hành trình Gạo Thơm Đăk La">
 </div>
 
 </div>
@@ -850,13 +939,21 @@ footer {
 
 </main>
 
+<!-- SUPABASE -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
 const SUPABASE_URL = "https://dmxlbxhfgfliwpzjleat.supabase.co";
 const SUPABASE_KEY = "sb_publishable_2Paz7KJcObe8Epbwc_5zQw_dWzZtBVr";
-const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+const db = window.supabase.createClient(
+ SUPABASE_URL,
+ SUPABASE_KEY
+);
+
 const BUCKET = "student-memories";
+
+/* TẢI KỶ NIỆM */
 
 async function loadMemories() {
  const gallery = document.getElementById("memory-gallery");
@@ -899,6 +996,8 @@ async function loadMemories() {
   gallery.appendChild(card);
  });
 }
+
+/* GỬI KỶ NIỆM */
 
 document.getElementById("memory-form").addEventListener("submit",async event => {
  event.preventDefault();
@@ -970,6 +1069,8 @@ document.getElementById("memory-form").addEventListener("submit",async event => 
  }
 });
 
+/* TẢI CẢM XÚC */
+
 async function loadFeelings() {
  const list = document.getElementById("feeling-list");
 
@@ -1010,6 +1111,8 @@ async function loadFeelings() {
  });
 }
 
+/* GỬI CẢM XÚC */
+
 document.getElementById("feeling-form").addEventListener("submit",async event => {
  event.preventDefault();
 
@@ -1048,6 +1151,8 @@ document.getElementById("feeling-form").addEventListener("submit",async event =>
  }
 });
 
+/* KHỞI ĐỘNG DỮ LIỆU */
+
 loadMemories();
 loadFeelings();
 
@@ -1057,8 +1162,228 @@ setInterval(() => {
 },20000);
 </script>
 
+<!-- THƯ VIỆN LẬT TRANG -->
 <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.min.js"></script>
-<script src="script.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+
+ const book = document.querySelector(".diary-book");
+ const pages = [...document.querySelectorAll(".diary-page")];
+
+ const prevButton = document.getElementById("diary-prev");
+ const nextButton = document.getElementById("diary-next");
+ const status = document.getElementById("diary-status");
+
+ if(!book || !pages.length) return;
+
+ let pageFlip = null;
+
+ // KÍCH THƯỚC CHUẨN
+ const PAGE_WIDTH = 500;
+ const PAGE_HEIGHT = 650;
+
+ document.documentElement.style.setProperty(
+  "--page-height",
+  `${PAGE_HEIGHT}px`
+ );
+
+ book.style.width = `${PAGE_WIDTH}px`;
+ book.style.height = `${PAGE_HEIGHT}px`;
+
+ pages.forEach(page => {
+  page.style.height = `${PAGE_HEIGHT}px`;
+  page.style.minHeight = "0";
+  page.style.maxHeight = `${PAGE_HEIGHT}px`;
+ });
+
+ // CHỜ FONT
+ if(document.fonts && document.fonts.ready) {
+  await document.fonts.ready;
+ }
+
+ // KHỞI TẠO SÁCH
+ function initializeBook() {
+
+  if(typeof St === "undefined" || !St.PageFlip) {
+   console.error("Không tìm thấy thư viện PageFlip.");
+   status.textContent = "Không tải được hiệu ứng lật trang";
+   return;
+  }
+
+  pageFlip = new St.PageFlip(book,{
+   width:PAGE_WIDTH,
+   height:PAGE_HEIGHT,
+
+   size:"stretch",
+
+   minWidth:280,
+   maxWidth:PAGE_WIDTH,
+
+   minHeight:520,
+   maxHeight:PAGE_HEIGHT,
+
+   showCover:true,
+   usePortrait:true,
+
+   drawShadow:true,
+   maxShadowOpacity:0.3,
+
+   flippingTime:750,
+
+   mobileScrollSupport:false,
+   useMouseEvents:true,
+
+   startPage:0,
+   autoSize:true
+  });
+
+  pageFlip.loadFromHTML(pages);
+
+  pageFlip.on("flip",event => {
+   updateStatus(event.data);
+  });
+
+  updateStatus(0);
+
+  console.log("Nhật ký hành trình đã khởi động!");
+ }
+
+ // CẬP NHẬT SỐ TRANG
+ function updateStatus(index) {
+
+  if(!status) return;
+
+  status.textContent =
+   `Trang ${index + 1} / ${pages.length}`;
+
+  if(prevButton) {
+   prevButton.disabled = index <= 0;
+  }
+
+  if(nextButton) {
+   nextButton.disabled = index >= pages.length - 1;
+  }
+ }
+
+ initializeBook();
+
+ // NÚT LẬT TRANG
+ if(prevButton) {
+  prevButton.addEventListener("click",() => {
+   if(pageFlip) pageFlip.flipPrev();
+  });
+ }
+
+ if(nextButton) {
+  nextButton.addEventListener("click",() => {
+   if(pageFlip) pageFlip.flipNext();
+  });
+ }
+
+ // KHÔNG LẬT TRANG KHI NHẬP LIỆU
+ const interactiveAreas = [
+  ".community-form",
+  ".memory-gallery",
+  ".feeling-list"
+ ];
+
+ interactiveAreas.forEach(selector => {
+
+  book.addEventListener("pointerdown",event => {
+   if(event.target.closest(selector)) {
+    event.stopImmediatePropagation();
+   }
+  },true);
+
+  book.addEventListener("touchstart",event => {
+   if(event.target.closest(selector)) {
+    event.stopImmediatePropagation();
+   }
+  },{
+   capture:true,
+   passive:true
+  });
+
+  book.addEventListener("mousedown",event => {
+   if(event.target.closest(selector)) {
+    event.stopImmediatePropagation();
+   }
+  },true);
+ });
+
+ // GIỮ CUỘN RIÊNG CHO NỘI DUNG
+ document.querySelectorAll(
+  ".memory-gallery,.feeling-list,.diary-page"
+ ).forEach(element => {
+  element.style.overscrollBehavior = "contain";
+ });
+
+ // XEM TRƯỚC ẢNH
+ const imageInput = document.getElementById("memory-image");
+
+ if(imageInput) {
+
+  const preview = document.createElement("img");
+
+  preview.alt = "Ảnh xem trước";
+  preview.style.display = "none";
+  preview.style.width = "100%";
+  preview.style.maxHeight = "110px";
+  preview.style.objectFit = "contain";
+  preview.style.marginTop = "6px";
+  preview.style.border = "1px solid #d5c09c";
+  preview.style.borderRadius = "4px";
+
+  imageInput.insertAdjacentElement("afterend",preview);
+
+  let currentPreviewURL = null;
+
+  imageInput.addEventListener("change",() => {
+
+   const file = imageInput.files[0];
+
+   if(currentPreviewURL) {
+    URL.revokeObjectURL(currentPreviewURL);
+    currentPreviewURL = null;
+   }
+
+   if(!file) {
+    preview.removeAttribute("src");
+    preview.style.display = "none";
+    return;
+   }
+
+   if(!file.type.startsWith("image/")) {
+    alert("Vui lòng chọn một tệp hình ảnh.");
+    imageInput.value = "";
+    preview.style.display = "none";
+    return;
+   }
+
+   currentPreviewURL = URL.createObjectURL(file);
+
+   preview.src = currentPreviewURL;
+   preview.style.display = "block";
+  });
+
+  const form = imageInput.closest("form");
+
+  if(form) {
+   form.addEventListener("reset",() => {
+
+    preview.style.display = "none";
+
+    if(currentPreviewURL) {
+     URL.revokeObjectURL(currentPreviewURL);
+     currentPreviewURL = null;
+    }
+   });
+  }
+ }
+
+});
+</script>
 
 </body>
 </html>
